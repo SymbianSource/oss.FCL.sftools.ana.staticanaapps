@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<!-- 
+	Links Data Source documentation to Data Sources section
+	in API Query's main help plug-in
+-->
+
+<toc label="API metadata file data source" 
+	link_to="../com.nokia.s60tools.apiquery.help/html/toolTOC.xml#DataSources" >
+
+	<topic label="API metadata file data source" href="html/toc.htm" >
+				   
+       <topic label="Configuring the API metadata file data source properties" href="html/propertiesTab.htm" />
+   		
+	</topic>
+		
+</toc>

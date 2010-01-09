@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Tasks" link_to="toc.xml#tasks"> 
+	
+	<topic label="Managing SDKs" href="html/tasks/manage_platforms.htm" />
+	<topic label="Selecting SDKs" href="html/tasks/selecting_platform.htm" />
+	<topic label="Setting preferences" href="html/tasks/setting_preferences.htm" />
+	<topic label="Locating components" href="html/tasks/locate_component.htm" />
+	<topic label="Analysing components" href="html/tasks/analyse_component.htm" />
+	<topic label="Checking component properties" href="html/tasks/check_comp_prop.htm" />
+	<topic label="Checking imported functions" href="html/tasks/check_imp_func.htm" />
+	<topic label="Checking exported functions" href="html/tasks/check_exp_func.htm" />
+	<topic label="Finding components" href="html/tasks/search_comp.htm" />
+	<topic label="Searching for components and functions" href="html/tasks/search.htm" />
+	<topic label="Viewing source files" href="html/tasks/view_source.htm" />
+	<topic label="Viewing source file in project" href="html/tasks/view_source_file_in_project.htm" />
+	<topic label="Viewing method call locations" href="html/tasks/view_method_call_locations.htm" />
+	<topic label="Exporting the report" href="html/tasks/export_report.htm" />
+
+</toc>

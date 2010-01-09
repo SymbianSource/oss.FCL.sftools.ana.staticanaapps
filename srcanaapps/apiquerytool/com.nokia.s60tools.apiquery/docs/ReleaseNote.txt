@@ -1,0 +1,85 @@
+========================================================================
+RELEASE NOTE FOR APIQUERY 1.0 Build 1 (version 1.0.4)
+SUPPORTING S60 1.x-3.x
+========================================================================
+
+Product Description:
+====================
+
+API Query is a tool for querying S60 Application Programming Interface (API) information. 
+
+You can start the API Query tool either by selecting the Carbide > 
+API Query menu item or via Window > Show View > Other... under Carbide Extensions category. 
+
+
+Features:
+=========
+
+- API Query using the following software asset database services: 
+	- for S60 data: http://kevlar.nmp.nokia.com/kevlar/api/legacyquery/ 
+	- for Core SW data: http://trwww017/cgi-bin/ifinfo/sheets.pl 
+	- for SPP data: http://s60tools/cgi-bin/spp/ifinfo/sheets.pl 
+- API Query using local API Interface Sheets. 
+- API usage verification in an active project. 
+
+
+Fixed issues:
+=============
+- Search result for working sources can be seen, when there was some sources
+  unavailable or causing errors. If at least one source is giving results but not
+  errors, warning message for failed sources is given, if all sources is giving
+  errors, an error message is given to user. 
+  This issue is fixed to plug-in version 1.0.3. 
+- API Query WWW Search Method plug-in search failed for 'API name' search 
+  when 'Search string' field contained white space character(s). This issue
+  is fixed to plug-in version 1.0.2.
+
+Enhancements:
+=============
+- Added usage logging and update site url
+
+
+New Features:
+=============
+- N/A (1st version)
+ 
+ 
+System Requirements:
+====================
+Basic Requirements:
+- Windows 2000, Windows XP
+- Carbide.c++ v2.0 (tested with build 7)
+- Minimum Platform/SDK build PC.
+- Normal Platform/SDK build PC.
+
+Additional Requirements:
+- Carbide.c++ with all its prerequisites have to be installed prior to installation.
+  See readme\readme_sdks.html under Carbide.c++ installation directory for prerequisites
+  (ActivePerl-5.6.1.635 and at least one S60 3rd Edition SDK/Platform needs to be installed).
+  
+How to upgrade from the older versions:
+---------------------------------------
+
+New version of the extension comes with updated versions of common utility plug-ins.
+Once you have installed the new set of plug-ins, perform the following steps:
+
+1) Open up 'Command Prompt'
+2) Go to the Carbide.c++ installation directory (e.g. C:\Program Files\Nokia\Carbide.c++ v2.0).
+3) Start Carbide.c++ with the following command line: "Carbide.c++.exe" -clean
+
+The starting of Carbide.c++ with clean option makes sure that the latest versions 
+of the plug-ins are loaded.  
+
+Compatibility Issues:
+=====================
+- N/A
+
+Known Issues:
+=============
+- Context sensitive help will not get focus when pressing F1 if API Query plug-in is
+  running in same tab with Help. Afterall, Context sensitive help will open to relative
+  item when pressing F1, and can be navigated by opening Help by clicking tab.
+    
+
+Copyright © 2007, 2008 Nokia Corporation. All rights reserved. 
+Nokia and Nokia Connecting People are registered trademarks of Nokia Corporation.

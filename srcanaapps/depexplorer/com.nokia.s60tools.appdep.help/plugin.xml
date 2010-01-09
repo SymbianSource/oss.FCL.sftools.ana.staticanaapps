@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true">
+      </toc>
+      <toc
+            file="tocconcepts.xml">
+      </toc>
+      <toc
+            file="tocgettingstarted.xml">
+      </toc>
+      <toc
+            file="toctasks.xml">
+      </toc>
+
+      <toc
+            file="tocreferences.xml">
+      </toc>
+
+   </extension>
+
+	<extension point="org.eclipse.help.index" >
+        <index file="index.xml"/>
+    </extension>
+
+	<extension point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml"
+            plugin="com.nokia.s60tools.appdep.help"/>
+   </extension>
+
+<!-- =================================================================================== -->
+<!-- Universal Intro support for welcome pages                                           -->
+<!-- =================================================================================== -->
+	<extension
+		point="org.eclipse.ui.intro.configExtension">
+		
+		<configExtension
+			configId="org.eclipse.ui.intro.universalConfig" 
+			content="html/intro/overviewAppDepExtContent.xml" /> 
+		 
+		<configExtension
+			configId="org.eclipse.ui.intro.universalConfig"
+			content="html/intro/whatsnewAppDepExtContent.xml" /> 
+		 
+	</extension>
+
+</plugin>

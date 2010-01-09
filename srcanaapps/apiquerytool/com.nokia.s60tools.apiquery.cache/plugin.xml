@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="com.nokia.s60tools.apiquery.searchMethods">
+      <searchMethod
+            class="com.nokia.s60tools.apiquery.cache.searchmethod.LocalCacheSearchMethodExtension"
+            description="API Metadata files from the SDK"
+            id="cache"/>
+   </extension>
+
+</plugin>

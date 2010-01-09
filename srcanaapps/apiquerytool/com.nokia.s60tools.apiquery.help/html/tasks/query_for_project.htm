@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Running an API query for a project</title>
+<link href="../../book.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<h2>Running an API query for a project</h2>
+<p>You can generate a report of the usage of APIs throughout your active project from the context menu. 
+You can access the context menu either by right-clicking any <i>.cpp</i> or <i>.h</i> file or any folder in the C/C++ Projects view, or by right-clicking your code anywhere in the editor.</p>
+
+<p>The report is a table in HTML format and is named as <code>[name]-project_is_using_APIs.html</code> by default. You can view it in Carbide's internal browser or in any Web browser.</p>
+<p>To run a query for a project, do the following:</p>
+<ol>
+<li> Right-click the item of your choice and from the pop-up menu, select <b>API Query > for Active Project</b>.</li>
+<li>In the <b>Save As</b> dialog, select the location for saving the query report within your project and click <b>OK</b>.</li>
+<li>When the report has been generated, click <b>OK</b> in the confirmation dialog to view it right away. <p>The report is opened to Carbide's internal browser. See the following figure for an example:</p>
+<p><img src="screenshots\sample_api_report.png"></p>
+<p>You can perform operations by clicking the underlined links in the report:</p>
+<ul>
+<li>Click an item in the <b>API Name</b>, <b>Subsystem</b>, or <b>Libs</b> column to start an API Query with the selected API name, subsystem or library as the search string and a preselected query type.</li>
+<li>Click an item in the <b>Used headers</b> or <b>Using files</b> column to open the selected file.</li>
+</ul>
+<p><b>Note</b>: You can only open links from the report when the API Query Carbide.c++ Extension is running.</p>
+</li>
+</ol>
+
+<h5>Related tasks</h5>
+<ul>
+<li><a href="../tasks/query_from_context_menu.htm">Running an API query from the context menu</a></li>
+</ul>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+</body>
+</html>
+

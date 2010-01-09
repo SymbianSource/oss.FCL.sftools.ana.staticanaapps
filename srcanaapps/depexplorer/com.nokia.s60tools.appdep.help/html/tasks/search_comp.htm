@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Finding components</title>
+<link href="../../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Finding components</h2>
+<p>You can search for currently selected components in the Dependency Explorer main view. Note that <b>Find Components</b> can be used only in the component tree.</p>
+<p>If you want to search for components, imported functions and/or exported functions from a selected SDK, see <a href="..\tasks\search.htm">Searching for components and functions</a>.</p>
+
+<ol>
+<li>To find components from component tree, do any of the following:
+<ul>
+<li>Right-click a component node and select <b>Find...</b></li>
+<li>Click the <b>Find</b> button on the Dependency Explorer toolbar. </li>
+<li>Press CTRL + F.</li>
+</ul>
+<p>The <b>Find Component</b> dialog is displayed.</p>
+<p><img src="screenshots\find_components.png"></p></li>
+<li>In the dialog, enter the search criteria for a component.
+<ul>
+<li>Search words are case-insensitive. <p><b>Example:</b> <i>cone</i>, <i>Cone</i> and <i>CONE</i> all return the same results. </p></li>
+<li>The search will find all components that contain the search criteria.
+<p><b>Example:</b> <i>co</i> returns <i>cone.dll</i>, <i>eikcore.dll</i>, <i>eikcoctl.dll</i> and so on.</p></li>
+<li>Wildcard characters (such as the asterisk *) are not needed. </li>
+</ul></li>
+<li>Click <b>Find Next</b>.<p>The first match that meets the criteria is highlighted on the component hierarchy, and its usage details are displayed on the <b>Imported Functions</b>, <b>Exported Functions</b> and <b>Component Properties</b> tabs. </p></li>
+</ol>
+
+<p>To continue looking for more components from the lower levels of the hierarchy, click <b>Find Next</b> again. A message is displayed when there are no more results to show.</p>
+
+<h5>Related concepts</h5>
+<ul>
+	<li><a href="../concepts/component.htm">Component</a></li>
+</ul>  
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+
+</body>
+</html>

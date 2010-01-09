@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Concepts" link_to="toc.xml#concepts" > 
+	<topic label="Software Development Kit (SDK)" href="html/concepts/platform.htm" />
+	<topic label="Component" href="html/concepts/component.htm" />
+	<topic label="Function" href="html/concepts/function.htm" />
+	<topic label="Properties" href="html/concepts/properties.htm" />
+</toc>

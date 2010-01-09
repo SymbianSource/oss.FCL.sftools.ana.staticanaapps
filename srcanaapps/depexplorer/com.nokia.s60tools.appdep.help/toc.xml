@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Dependency Explorer" 
+	link_to="../com.nokia.carbide.help.common/carbideHelpTOC.xml#anchorCarbideMisc">
+
+	<!--
+		Define the TOOL NAME as it should appear in the TOC. The tool.htm page
+		is the cover page for the tool help.
+	-->
+	<topic label="Dependency Explorer" href="html/toc.html" >
+		
+	   <!--
+		   Following the Eclipse guidelines, the tool help is arranged as Concepts,
+		   References, and Tasks. Each has their own associated XML file to make it
+		   easy to edit each section as well as an overview page.
+	   -->
+   <topic label="Release Notes" href="html/release_notes.htm" />
+	
+   <topic label="Getting Started" href="html/gettingstarted/GS_index.htm">
+      <anchor id="gettingstarted"/>
+   </topic>
+   
+   <topic label="Concepts" href="html/concepts/concepts.htm">
+      <anchor id="concepts"/>
+   </topic>
+   
+   <topic label="Tasks" href="html/tasks/tasks.htm" >
+      <anchor id="tasks"/>
+   </topic>
+
+   <topic label="References" href="html/references/references.htm">
+      <anchor id="references"/>
+   </topic>
+  
+   <topic label="Appendix: Static Dependencies to Dynamic Data" href="html/appendix.htm" />
+   <topic label="Legal" href="html/legal.htm" />
+      
+	</topic>
+</toc>

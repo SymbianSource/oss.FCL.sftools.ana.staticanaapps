@@ -1,0 +1,33 @@
+
+------------------------------------------------------------------------
+Things that has been tested but might need official functionality tests:
+------------------------------------------------------------------------
+
+- Failed to start some search method extension.
+	* Prints error info into console
+
+- No extension plugins (that implement "com.nokia.s60tools.apiquery.searchMethods" extension point)
+  exists in the system.
+	* Show an error dialog to a user
+	* Prints error info into console
+	* Raises run-time exception that creates and error log entry.
+  
+- 
+
+  
+- 
+
+  
+- 
+
+  
+- 
+
+---------------------------------------------------------------------------
+Things that has NOT been tested and might need official functionality tests:
+----------------------------------------------------------------------------
+
+- 
+  
+- 
+

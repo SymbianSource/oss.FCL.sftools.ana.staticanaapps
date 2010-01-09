@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Appendix: Static Dependencies to Dynamic Data</title>
+<link href="../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Appendix: Static Dependencies to Dynamic Data</h2>
+<p>In ARM EABI binary model used in Symbian OS 9.x the compiler generates exports for runtime type information (RTTI) and virtual tables. With c++filt _ZTI maps to typeinfo for and _ZTV maps to vtable for. Those exports are actually data - they will never be "called" in a functional sense. They will be used to fill in values in the corresponding tables for derived classes, if there are any in the calling DLL.</p>
+
+<p>Those objects are automatically exported, even though they are not nameable in C++. The compiler will expect these symbols to exist when compiling code which needs them (for example, constructors for derived classes), and generates them when it compiles a "key function" for the class. These symbols are added automatically when the EABI def files are frozen - they are automatic exports.</p>
+
+<p>The LIB format for import libraries is restricted and does not contain these exports in the symbol table. Therefore it is always recommended to prefer DSO format over LIB which does not have this limitation when analyzing content of import libraries. Ordinals in the symbol table form a continuous sequence from 1 to n and therefore cannot contain any  holes. If LIB files contain holes, the content of those is unknown. Exports related to runtime type information and virtual tables can also be in the end of symbol table so with LIB files size of symbol table can be reported incorrectly.</p>
+
+<p>Source: <i>Definitive Guide on the Technical Intricacies of Compatibility</i>, 2006, Peter Harper, Symbian LTC.</p> 
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+
+</body>
+</html>

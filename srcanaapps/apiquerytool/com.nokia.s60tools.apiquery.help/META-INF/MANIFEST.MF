@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Carbide.c++ Extensions - APIQuery Help Plug-in
+Bundle-SymbolicName: com.nokia.s60tools.apiquery.help;singleton:=true
+Bundle-Version: 1.2.6
+Bundle-Vendor: Nokia
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.help
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

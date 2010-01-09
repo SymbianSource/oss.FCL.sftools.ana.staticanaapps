@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.index"?>
+
+	<!-- INDEX INSTRUCTIONS
+	
+	Use the index.xml file to define the index entries for the plugin's 
+	help contents. In Eclipse 3.2 and beyond an Index tab appears in the Help
+	viewer making it possible for user to more easily locate subjects of
+	interest to them.
+		
+	In brief, every file used in the help documentation should have at least one
+	associated index entry for it. Ideally, it's simple to make two entries per
+	page by simply re-wording the subject slightly. For example, a view could
+	be indexed twice like this, 1) Breakpoint view, and 2) Views/Breakpoint.
+	
+	See ??? for details on creating indexes.
+	
+	-->
+
+<index>
+
+	<!-- AAAAAAAA -->
+
+	<entry keyword="API metadata file data source, configuring" >
+		<topic href="html/propertiesTab.htm" />
+	</entry>
+
+	<!-- BBBBBBBB -->	
+
+	<!-- CCCCCCCC -->	
+
+	<entry keyword="configuring data sources" >
+		<entry keyword="API metadata file data source" >
+			<topic href="html/propertiesTab.htm" />
+		</entry>
+	</entry>
+
+	<!-- DDDDDDDD -->		
+
+	<!-- EEEEEEEE -->	
+
+	<!-- FFFFFFFF -->
+
+	<!-- GGGGGGGG -->	
+	
+	<!-- HHHHHHHH -->	
+	
+	<!-- IIIIIIII -->
+	
+	<!-- JJJJJJJJ -->
+	
+	<!-- KKKKKKKK -->
+	
+	<!-- LLLLLLLL -->
+	
+	<!-- MMMMMMMM -->
+	
+	<!-- NNNNNNNN -->
+	
+	<!-- OOOOOOOO -->
+	
+	<!-- PPPPPPPP -->
+	
+	<!-- QQQQQQQQ -->
+	
+	<!-- RRRRRRRR -->
+	
+	<!-- SSSSSSSS -->
+
+	<entry keyword="SDK metadata data source, configuring" >
+		<topic href="html/propertiesTab.htm" />
+	</entry>
+	
+	<!-- TTTTTTTT -->
+	
+	<!-- UUUUUUUU -->
+	
+	<!-- VVVVVVVV -->
+	
+	<!-- WWWWWWWW -->
+
+	<!-- XXXXXXXX -->
+	
+	<!-- YYYYYYYY -->
+	
+	<!-- ZZZZZZZZ -->
+
+</index>

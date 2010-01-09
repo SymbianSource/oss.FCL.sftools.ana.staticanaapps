@@ -1,0 +1,23 @@
+Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+All rights reserved.
+
+This component and the accompanying materials are made available
+under the terms of "Eclipse Public License v1.0"
+which accompanies this distribution, and is available
+at the URL "http://www.eclipse.org/legal/epl-v10.html".
+
+
+GNU Binutils - c++filt
+This Nokia Product includes Open Source Software. Certain software 
+included in this Nokia Product is licensed and distributed under 
+GNU General Public License (GPL), the GNU Lesser General Public License 
+(LGPL, a.k.a. the GNU Library General Public License) and/ or other 
+copyright licenses, disclaimers and notices containing obligation or 
+permission to provide the source code of such software with the 
+binary / executable form delivery of the said software. 
+The source code is delivered to you in accordance with the referred 
+license terms and conditions in the media attached to this document. 
+The exact license terms of GPL and LGPL and said certain other licenses, 
+as well as the required copyright and other notices, permissions and 
+acknowledgements are reproduced in and delivered to you as part of 
+the referred source code.

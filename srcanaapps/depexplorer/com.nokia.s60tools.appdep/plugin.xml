@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   
+    <extension
+      point="org.eclipse.core.runtime.products"
+      id="product">      
+      <product name="Dependency Explorer" application="org.eclipse.ui.ide.workbench" > 
+          <property name="appName" value="Carbide.c++ Extensions - Dependency Explorer"/> 
+     </product> 
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="Dependency Explorer Tool&apos;s Actions"
+            id="com.nokia.s60tools.appdep.ui.actionSet"
+            label="Dependency Explorer Tool"
+            visible="true">
+         <action
+               class="com.nokia.s60tools.appdep.ui.actions.ToolbarShortcutAction"
+               icon="icons/appdep.png"
+               id="com.nokia.s60tools.appdep.ui.actions.ToolbarShortcutAction"
+               label="&amp;Dependency Explorer"
+               menubarPath="com.nokia.carbide.cpp.ui.CarbideMenu/CarbideExtensions"
+               tooltip="Dependency Explorer">
+         </action>
+         <menu
+       			id="com.nokia.carbide.cpp.ui.CarbideMenu"
+       			label="&amp;Carbide"
+       			path="additions">
+       			<groupMarker name="additions"/>
+     		</menu>
+      </actionSet>
+   </extension>
+      
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.nokia.s60tools"
+            name="Carbide Extensions"/>
+      <view
+            category="com.nokia.s60tools"
+            class="com.nokia.s60tools.appdep.ui.views.main.MainView"
+            icon="icons/appdep.png"
+            id="com.nokia.s60tools.appdep.ui.views.main.MainView"
+            name="Dependency Explorer"/>
+      <view
+            class="com.nokia.s60tools.appdep.ui.views.listview.ListView"
+            id="com.nokia.s60tools.appdep.ui.views.listview.ListView"
+            name="Component List"/>
+   </extension>
+   
+       <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Dependecy Explorer Preferences"
+            class="com.nokia.s60tools.appdep.ui.preferences.DEPreferencePage"
+            category="com.nokia.carbide.cpp.preferences.ExtensionsPreferencesPage"
+            id="com.nokia.s60tools.appdep.ui.preferences.DEPreferencePage">
+      </page>
+   </extension>
+
+</plugin>

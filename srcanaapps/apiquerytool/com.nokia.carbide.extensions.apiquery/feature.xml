@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.nokia.carbide.extensions.apiquery"
+      label="Carbide.c++ Extensions - API Query"
+      version="1.2.6"
+      provider-name="Nokia"
+      plugin="com.nokia.s60tools.apiquery">
+
+   <description>
+      API Query is tool to search for information about the APIs used in S60 projects.
+   </description>
+
+   <copyright>
+      Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+All rights reserved.  License:http://www.eclipse.org/legal/epl-v10.html.
+   </copyright>
+
+   <license url="license.txt">
+      Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+ All rights reserved.
+
+ This component and the accompanying materials are made available
+ under the terms of &quot;Eclipse Public License v1.0&quot;
+ which accompanies this distribution, and is available
+ at the URL &quot;http://www.eclipse.org/legal/epl-v10.html&quot;.
+   </license>
+
+   <url>
+      <update label="Carbide.c++ Update Site" url="http://tools.ext.nokia.com/updates/carbide22"/>
+      <discovery label="Carbide.c++ Update Site" url="http://tools.ext.nokia.com/updates/carbide22"/>
+   </url>
+
+   <requires>
+      <import plugin="com.nokia.s60tools.sdk" version="1.1.5" match="greaterOrEqual"/>
+      <import plugin="com.nokia.s60tools.ui" version="1.1.9" match="greaterOrEqual"/>
+      <import plugin="com.nokia.s60tools.util" version="1.1.11" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.nokia.s60tools.apiquery"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.nokia.s60tools.apiquery.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.nokia.s60tools.apiquery.cache"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.nokia.s60tools.apiquery.cache.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

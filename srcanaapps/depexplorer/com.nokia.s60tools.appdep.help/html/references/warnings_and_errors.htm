@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Messages and notifications</title>
+<link href="../../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Messages and notifications</h2>
+<p>The following table lists the messages that may be displayed when selecting build targets and creating cache for SDK components or SIS files in Dependency Explorer.</p>
+<p></p>
+
+<table width="772" border="1" cellspacing="1" cellpadding="2">
+<colgroup>
+	<col width="89*">
+	<col width="93*">
+	<col width="105*"></colgroup>
+<thead>
+<tr bgcolor="#D0D0D0">
+	<th height="28"><b>Problem</b></th>
+	<th><b>Explanation</b></th>
+	<th height="28"><b>Action</b></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code class="code">All selected targets must have components</code></td>
+<td>The selected build target does not have any components to generate the cache from. </td>
+<td>Build components for the SDK or select another SDK. </td>
+</tr>
+
+<tr>
+<td><code class="code">All selected targets must use same default toolchain</code></td>
+<td>GCC and GCCE/RVCT toolchain binaries cannot be mixed because they use different toolchain tools for creating cache files. <p></p> If selecting GCCE and ARMV* targets, the CSL Arm toolchain is used by default to generate the cache for both. </td>
+<td>Select the build targets from either group: <p></p><i>GCC toolchain:</i> ARMI, ARMV4, THUMB, and targets starting with M. <p></p><i>GCCE/RVCT toolchain: </i> other target types</td>
+</tr>
+
+<tr>
+<td><code class="code">All selected targets must be supported</code></td>
+<td>If you have unselected the <b>Show only supported and non-empty target builds</b> check box, the wizard lists all targets, also unsupported ones. </td>
+<td>Select the <b>Show only supported and non-empty target builds</b> check box. Then select your target builds from the available ones. </td>
+</tr>
+
+<tr>
+<td><code class="code">Cache generation failed for [build + release].</code></td>
+<td>Check the console log for details. <p></p>For example, this message is shown when the <i>dumpsis.exe</i> utility cannot find the necessary files for decompiling the SIS file. </td>
+<td>Ensure you have the correct version of <i>dumpsis.exe</i>:   <p></p> Download a Symbian OS 9.2 SDK. From its <i>\epoc32\tools</i> directory, copy the <i>dumpsis.exe</i> file to the <i>\epoc32\tools</i> directory of the SDK you are using.</td>
+</tr>
+
+<tr>
+<td><code class="code">Cache generation cannot be ongoing for selected targets
+</code></td>
+<td>The process is currently running in the background. </td>
+<td>Wait until the cache has been generated, and the <b>Next</b> and <b>Finish </b> buttons are enabled again. </td>
+</tr>
+
+<tr>
+<td><code class="code">Caches must be up-to-date for selected targets</code></td>
+<td>The data in the selected cache has become outdated. </td>
+<td>Do either of the following: <p></p>Click <b>Finish</b> to start the cache update. <p>Or: </p>Click <b>Next</b> to specify the update options. </td>
+</tr>
+
+<tr>
+<td><code class="code">Caches must have been generated for selected targets</code></td>
+<td>If one or more of the selected build targets is marked with a yellow symbol, cache generation is needed. </td>
+<td>Do either of the following: <p></p>Click <b>Finish</b> to start the cache generation.<p>Or: </p>Click <b>Next</b> to specify the generation options.</td>
+</tr>
+
+<tr>
+<td><code class="code">Caches indices must be created for selected targets</code></td>
+<td>The cache index generation is currently running in the background. </td>
+<td>Wait until the index has been created, and the <b>Next</b> and <b>Finish</b> buttons are enabled again. </td>
+</tr>
+
+<tr>
+<td><code class="code">Only Symbian OS 9.x SIS files are supported.</code></td>
+<td>The selected SIS file is created for Symbian OS v8.1b. Only Symbian OS v9.x SIS files are supported.</td>
+<td>Select another file. The supported Symbian OS v9.x edition is typically identified in the file name. </td>
+</tr>
+
+</tbody>
+</table>  
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+
+</body>
+</html>

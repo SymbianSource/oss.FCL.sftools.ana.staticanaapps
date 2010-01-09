@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Concepts">
+	
+	<!-- Enter topic entries here for Concepts section of help -->
+	
+	<topic label="Data source" href="html/concepts/data_source.htm" />
+	<topic label="Software Development Kit (SDK)" href="html/concepts/software_development_kit.htm" />
+	<topic label="API metadata file" href="html/concepts/metadata_file.htm" />
+	
+</toc>

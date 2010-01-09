@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Selecting SDKs</title>
+<link href="../../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Selecting SDKs</h2>    
+<p>Before you start, make sure you have installed the necessary Software Development Kits (SDKs) to Carbide.c++. For instructions, see <a href="../tasks/manage_platforms.htm">Managing SDKs</a>.</p>
+<p>To select SDKs, target builds, SIS files, and components for analysis, do the following:</p>
+<ol>
+	<li><a href="#select_sdk">Select an SDK and build targets</a>.</li>
+	<li>(Optional) <a href="#add_sis">Add SIS files</a>.</li>
+	<li>(Optional) <a href="#generate_cache">Generate cache</a>.</li>
+	<li><a href="#select_components">Select components</a>.</li>
+</ol>
+
+
+<h3 id="select_sdk">Select an SDK and build targets</h3>
+<ol>
+<li>Double-click the root component icon to select the SDK whose components you want to analyse.
+<p><img src="screenshots\shot_doubleclick.png"></p></li>
+<li>The <b>SDK Selection</b> wizard page is displayed, listing the Symbian OS SDKs currently installed to Carbide.c++. Select an SDK and click <b>Next</b>.
+<p><img src="screenshots\sdk_sel_wizard.png"></p></li>
+<li><a name="build_target_selection"></a>The <b>Build Target Selection</b> wizard page is displayed, listing the build targets available for the selected SDK. Select the targets you want to view. You can sort the list of build targets by target type, component count, or status.
+<p>You can switch between the debug and release targets with the <b>Show debug build targets instead of release targets</b> option, and you can filter out empty items with the <b>Show only supported and non-empty targets</b> option. You can also add SIS files by clicking <b>Add SIS files</b>. For more information, see <a href="#add_sis">(Optional) Add SIS files</a>.<p>
+<p><b>Note:</b> A cache is a list of components included in a particular SDK. The coloured lights in the <b>Status</b> column indicate the cache status:</p>
+<ul>
+<li><b>Red</b> means that this build target cannot be selected because the target is empty or it is not supported. If you select any targets with the red light, the wizard cannot continue.</li>
+<li><b>Yellow</b> means that you need to generate or update a cache for this build target.</li>
+<li><b>Green</b> means that the cache is ready.</li>
+</ul>
+<p><img src="screenshots\build_target_selection.png"></p>
+</li>
+</ol>
+<p>After selecting an SDK and build targets, do any of the following, depending on the case:</p>
+<ul>
+<li>To add SIS files, click <b>Add SIS Files</b>. See <a href="#add_sis">(Optional) Add SIS files</a>.</li>
+<li>If caches have already been generated for all of the selected build targets, click <b>Next</b> to proceed to the <b>Component Selection</b>. See <a href="#select_components">Select components</a>.</li>
+<li>To generate or update a cache with the default settings, click <b>Finish</b> to generate or update a cache and then proceed to the <b>Component Selection</b>. See <a href="#select_components">Select components</a>.</li>
+<li>To modify the cache generation settings, click <b>Next</b> to proceed to the <b>Cache Generation</b>. See <a href="#generate_cache">Generate cache</a>.</li>
+</ul>
+
+
+<h3 id="add_sis">(Optional) Add SIS files</h3>
+<p>Symbian OS Installation Files (SIS) can be analysed in Dependency Explorer together with SDK components. For more information, see <a href="../concepts/component.htm#3rd_party">Third-party and in-house components</a>.</p>
+
+<p>The following SIS files are supported:</p>
+<ul>
+	<li>Files created with an SDK built on top of Symbian OS 9.x.</li>
+	<li>Files created for S60 3rd Edition Feature Pack 1 and onwards.</li>
+</ul>
+
+<p>To add a SIS file for analysis, do the following: </p>
+<ol>
+<li>Click <b>Add SIS files</b> in the <b><a href="#build_target_selection">Build Target Selection</a></b> page of the SDK Selection wizard. The Add SIS file dialog is displayed.</li>
+<li>To locate the SIS files from your computer, click <b>Add</b> and select one or more files to add. </li>
+<li>To add the files to the wizard, click <b>Open</b>.
+<p>Supported files are listed on the page, as shown in the example below:</p>
+<p><img src="screenshots\add_sis_files_1.png"></p></li>
+<li>Click <b>OK</b>. If your selection is not valid, a notification is displayed. For help in troubleshooting, see <a href="../references/warnings_and_errors.htm">Messages and notifications </a>.</li>
+</ol>
+
+<p>After adding SIS files, do any of the following, depending on the case:</p>
+<ul>
+<li>If caches have already been generated for all of the selected build targets, click <b>Next</b> to proceed to the <b>Component Selection</b>. See <a href="#select_components">Select components</a>.</li>
+<li>To generate or update a cache with the default settings, click <b>Finish</b> to generate or update a cache and then proceed to the <b>Component Selection</b>. See <a href="#select_components">Select components</a>.</li>
+<li>To modify the cache generation settings, click <b>Next</b> to proceed to the <b>Cache Generation</b>. See <a href="#generate_cache">Generate cache</a>.</li>
+</ul>
+
+
+<h3 id="generate_cache">(Optional) Generate cache</h3>
+<p>If you added SIS files, note that during the cache generation, Dependency Explorer checks that all the needed files for SIS handling are available. If the process is stopped, check the console log for errors and refer to <a href="../references/warnings_and_errors.htm">Messages and notifications</a> for help.</p>
+
+<p>To generate cache, do the following:</p>
+<ol>
+<li><a name="cache_gen_options"></a>If you selected to change the cache generation options in the <b><a href="#build_target_selection">Build Target Selection</a></b> page of the SDK Selection wizard, the <b>Cache Generation</b> page of the wizard is displayed. Modify the following fields as needed and click <b>Finish</b>.
+<ul>
+<li><b>Toolchain</b> - Specifies the compiler tool set that is used to read exports from import libraries in the release. Normally, the default value (CSL Arm Toolchain) should be used but this can be changed in case of a problem.
+<p>Note that using the RealView Compilation Tools (RVCT) toolchain to read .dso files may be slow, due to RVCT licence server checks with each file.</p></li>
+<li><b>Import library type</b> - Specifies which types of import libraries within the release are used to get exports.
+<ul>
+<li>Dynamic shared object (.dso) - A shared import library type which also contains information about dynamic dependencies.</li>
+<li>Import library (.lib) - Regular type of import library. This should only be used in case of problems or if dynamic shared objects (.dso) are not available.</li>
+</ul></li>
+</ul>
+<p><img src="screenshots\cache_generation.png"></p>
+</li>
+<li>Wait until Dependency Explorer generates the cache for the components. Note that this may take several minutes.</li>
+</ol>
+<p>After generating caches, click <b>Yes</b> to proceed to <b>Component Selection</b>. See <a href="#select_components.htm">Select components</a>.</p>
+
+
+<h3 id="select_components">Select components</h3>
+<p>Before you can select components for analysis, the necessary SDKs and SIS files must be installed, and caches generated for them. For details, see <a href="#select_sdk">Select an SDK and build targets</a>, <a href="#add_sis">Add SIS files</a>, and <a href="#generate_cache">Generate cache</a>.</p>
+
+<p>To select components, do the following:</p>
+<ol>
+<li>In the <b>Component Selection</b> page, select one or more components for analysis. You can sort the list by name, build target, and modification date and time.
+<p>To find the desired component, either browse the list manually or enter a substring of the component name in the <b>Search</b> field.</p>
+<p><img src="screenshots\shot_component_select.png"></p></li>
+<li>(Optional) To view components that belong to SIS files, select the <b>Show only components from SIS files</b> check box.</li>
+<li>Click <b>Finish</b>. <p>The dependencies of the component are listed in the Dependency Explorer view.</p></li>
+</ol>
+
+<p>You can now analyse the currently listed components in more detail. See <a href="../tasks/analyse_component.htm">Analysing components</a>.</p>
+<p><b>Tip:</b> Dependency Explorer notifies you if the cache for your current build target selection has become outdated since it was first generated. You can update it by clicking <b>Yes</b> in the confirmation dialog, or update it at any time by clicking the <b>Update cache</b> button on the toolbar. The cache is updated with default options.</p>
+
+
+<h5>Related tasks</h5>
+<ul>
+	<li><a href="../tasks/analyse_component.htm">Analysing components</a></li>
+</ul>
+
+<h5>Related concepts</h5>
+<ul>
+	<li><a href="../concepts/platform.htm">Software Development Kit (SDK)</a></li>
+	<li><a href="../appendix.htm">Appendix: Static Dependencies to Dynamic Data</a></li>
+	<li><a href="../concepts/component.htm">Component</a></li>
+</ul>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div> 
+
+</body>
+</html>

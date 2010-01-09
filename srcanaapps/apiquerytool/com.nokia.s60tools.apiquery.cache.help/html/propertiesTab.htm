@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Configuring the API metadata file data source properties</title>
+<link href="../book.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<h3>Configuring the API metadata file data source properties</h3>
+<p>Using the API metadata file data source from an SDK is a good option, for example, for cases when you have network restrictions for using the Web data source option. This data source only requires a suitable SDK to be present.</p>
+<p>To configure the API metadata file data source, do the following:</p>
+<ol>
+<li>On the <b>Properties</b> tab, select <b>API Metadata files from the SDK</b> from the <b>Data Source</b> drop-down list.
+<p><img src="screenshots\sdk_data_source_properties.png"></p></li>
+<li>
+From the listbox, select an SDK from your local workstation.To aid selection ,cached/uncached information is displayed against each sdk.
+<p>With applicable SDKs, API Query starts seeking for the existing <i>.metaxml</i> files from the SDK.</p>
+<p>If you have problems with the SDK, see the <a href="#tips">Tips and hints</a> below for more information. </p> 
+
+</li>
+</ol>
+<p>Next, you can start an API query either from the <b>Search</b> tab or from the context menu of your project. For instructions, see the <i>Tasks</i> section in the Table of Contents in API Query Help.</p>
+
+<h3><a id="tips"></a>Tips and hints for API metadata file data source</h3>
+<table border="1" cellspacing="1" cellpadding="2">
+<colgroup><col><col></colgroup>
+<tbody>
+<tr>
+<td><b>Situation</b></td>
+<td><b>Solution</b></td>
+</tr>
+<tr>
+<td><p>The selected SDK does not contain any API metadata <i>.metaxml</i> files.</p></td>
+<td><p>The SDK cannot be used in API queries. Select another SDK and try again.</p></td>
+</tr>
+<tr>
+<td><p>Some of the data sources cannot be loaded. </p></td>
+<td><p>The SDK contains API metadata files that are not formally valid XML. These files are excluded from API queries. </p><p>(If possible, to fix the issue, notify the API's responsible person about the problem.)</p></td>
+</tr>
+<tr>
+<td><p>The SDK contents have changed since it was first loaded. </p></td>
+<td><p>You can refresh the local cache of the specified SDK by clicking <b>Refresh cache</b>. </p><p>Refreshing the SDK data is useful in cases when the metadata files have been updated or errors detected earlier have been corrected. </p></td>
+</tr>
+</tbody>
+</table>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+</body>
+</html>

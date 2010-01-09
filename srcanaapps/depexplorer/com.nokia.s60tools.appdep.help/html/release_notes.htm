@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Release Notes</title>
+<link href="../book.css" type="text/css" rel="stylesheet">
+<style type="text/css"><!-- .style2 {font-size: 12px} --></style>
+</head>
+<body bgcolor="#FFFFFF">
+
+<h2>Release Notes</h2> 
+<h4>Dependency Explorer &ndash; Version 2.4.4</h4>
+<p>Released 26th November 2009</p>
+<ul>
+	<li><a href="#description">Product description</a></li>
+	<li><a href="#features">Main features</a></li>
+	<li><a href="#newfeatures">What's new</a></li>
+	<li><a href="#installation">Installation notes</a></li>
+	<li><a href="#requirements">System requirements</a></li>
+	<li><a href="#compissues">Compatibility issues</a></li>
+	<li><a href="#issues">Known issues</a></li>
+</ul> 
+
+<h3><a name="description"></a>Product description</h3>
+<p>Dependency Explorer is a tool for analysing static dependencies between  components. In addition to resolving static dependencies, the tool can also display the functions that are used from each component. Core functionality is implemented in a command line runnable executable. Dependency Explorer offers Carbide.c++ integration that provides a graphical user interface for the command line tool.</p>
+<p>The Dependency Explorer tool can be started either by selecting the <b>Carbide > Dependency Explorer</b> menu item or via <b>Window > Show View > Other...</b> under <b>Carbide Extensions</b> category.</p>
+
+<h3><a name="features"></a>Main features</h3>
+<ul>
+<li>UI for generating cache files that store the component dependency information. Cache files are updated incrementally after the first-time creation.</li>
+<li>UI for selecting SDK/Build target(s) and components to be analyzed for dependencies. A search field for finding a matching component in the component selection page.</li>
+<li>UI for showing a dependency hierarchy for the analysed component.</li>
+<li>UI for showing the functions that have been imported from the component selected in the dependency hierarchy (ordinal, name, and offset).</li>
+<li>UI for showing the functions that have been exported from the component selected in the dependency hierarchy (ordinal, name).</li>
+<li>New <b>Add SIS files</b> dialog enables adding SIS files from multiple different folder locations</li>.
+<li>The AddSISFile toolbar option enables adding SIS files & updation of cache for the selected SDK & target</li>.
+<li>Two UI options for showing component properties (dialog and properties tab). </li>
+<li>"Is Used By..." context menu both in the component hierarchy tree and in the Imported Functions pane, and Component List view that displays those components that are using the selected component/function. The toolbar shows which kind of search was used to generate the component list.</li>
+<li>Information from the Component List view and from Imported Functions tab can be copied to the clipboard.</li>
+<li>Find dialog that enables finding components from the dependency tree based on a given name (or part of the component name).</li>
+<li>Possibility to analyze components from Symbian OS Installation (SIS) files together with an existing build targets.</li>
+<li>Update Cache action that enables quick cache update for the currently selected build targets.</li>
+<li><b>Searching for components and functions</b> feature enables searching of components, imported functions and exported functions from the currently selected build target cache(s). Search results can be copied to clipboard for further processing, and double-clicking of a search result item opens the corresponding component as a new root component.</li>
+<li><b>Locating components</b> feature enables showing also component tree for the components that are dependent upon based on generic component name (for example <i>hal.dll</i>). Those components do not exist as such in cache data but may have multiple concrete implementations (for example <i>hal.dll</i> has multiple implementations <i>_h4hrp_hal.dll, _template_hal.dll, _h2_hal.dl</i>l etc.). There are two options for locating components:
+<ul>
+<li>Locating manually from component list by selecting <b>Locate Component...</b> action from context menu (user-bind)</li>
+<li>Defining known component prefixes (for example <i>_h4hrp_</i>) in the preferences page and correct component instances are located automatically (auto-bind).</li>
+</ul></li>
+<li><b>Viewing source file</b> feature adds an action to Imported and Exported Functions tabs. The action opens up for viewing the source file that implements the currently selected function.</li>
+<li><b>Viewing source file in project</b> feature adds an action to Imported and Exported Functions tabs. The action opens up for viewing the project and source file that implements the currently selected function.</li>
+<li><b>Viewing method call locations</b> feature adds an action to Imported Functions tab. The action opens up the project for the component that uses the currently selected function, and searches for all instances where the selected function is called from the component.</li>
+<li>Context-sensitive help.</li>
+<li>Dependency Explorer comes with a command line tool version of <i>appdep.exe</i> and <i>cfilt.exe</i>. Both executables can be found in a delivery jar-package from
+the directory <i>com.nokia.s60tools.appdep_X.Y.Z\os\win32\x86
+</i>, in which <i>X.Y.Z</i> is the current build number for Dependency Explorer.
+Both executables are copied at run-time to the directory <i>
+\configuration\org.eclipse.osgi\bundles\{DIR}\1\.cp\os\win32\x86</i>, in
+which <i>{DIR}</i> is the workstation-specific directory name.</li>
+<li>Supports Symbian OS versions 6.x-9.x. </li>
+<li>Supports GCC toolchain<ul>
+<li>for targets ARMI, ARMV4, THUMB and targets starting with M. </li>
+</ul></li>
+<li>Supports GCCE toolchain (tested with CSL Arm Toolchain, 2005-05-19/Sourcery G++ Lite for ARM SymbianOS Toolchain, 2008.1.0.126) and RVCT 2.2/3.0/3.1 toolchain (tested with 2.2 Build 503)<ul>
+<li>for other targets types.</li>
+</ul></li>
+<li>Does not support WIN* or TOOLS* target types.</li>
+</ul>  
+
+<h3><a name="newfeatures"></a>What's new</h3>
+<ul>
+<li>Fix: Fixed the issue with the features <b>Show Source File</b> and <b>Show Method Call Locations</b>
+on non symbian code base like QT & Orbit.</li>
+</ul>  
+
+<h3><a name="installation"></a>Installation notes</h3>
+<ul>
+	<li>N/A</li>
+</ul>
+
+<h3><a name="requirements"></a>System requirements</h3> <p>Basic
+Requirements:</p> <ul>
+<li>Windows 2000, Windows XP</li>
+<li>RVCT or GCCE Toolchain (GCC toolchain optional, needed for ARMI, ARMV4,
+and THUMB targets)</li>
+<li>Carbide.c++ v2.0.2, or newer</li>
+<li>Minimum SDK build PC.</li>
+<li>Normal SDK build PC.</li>
+</ul>  Additional requirements: <ul>
+<li>Carbide.c++ with all its prerequisites have to be installed prior to installation.
+See the file readme\readme_sdks.html under the Carbide.c++ installation directory
+for prerequisites. (ActivePerl-5.6.1.635, and at least one Symbian
+SDK needs to be installed.)</li>
+<li>The analysed Symbian SDKs must include epoc32\tools\elftran.exe executable which is used
+  to extract dependency data from the component binaries in Symbian OS 9.x targets and petran.exe
+  to extract data for Symbian OS versions prior to 9.x.
+</li>
+<li><i>Dumpsis.exe</i> executable is needed for decompiling SIS files. It
+is available from Symbian 9.2 onwards.  However, this executable also works
+in 9.1 SDKs and can be copied to the epoc32\tools\ directory from a 9.2 SDK's
+directory.</li>
+</ul>
+
+<h3><a name="compissues"></a>Compatibility issues</h3>
+<ul>
+<li>The official Carbide.c++ version for this tool is v2.0 (which has been
+used for testing). The tool should otherwise work on top of v1.3, except for
+the <b>Viewing method call locations</b> functionality that works only on
+top of v2.0.</li>
+</ul>
+
+<h3><a name="issues"></a>Known issues</h3>
+<ul>
+<li>Method <span class="code">lastModified()</span> of Java class file does
+not always give  correct results. For details, see <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4860999">
+http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4860999</a>. Therefore,
+cache update check ignores all the time stamp differences that are exactly
+one hour greater than time stamps stored in the Dependency Explorer cache
+file. After the enhancement of allowing two second tolerance in component
+modification timestamps, the timestamp differences between 59 minutes 58 seconds
+and 1 hour 2 seconds are ignored when checking the need for a cache update.
+</li>
+<li>'SIS file analysis' feature cannot be used against targets that do not have any binaries 
+  i.e. in addition for having a SIS file one must have a target that has at least a single 
+  built component. Workaround for the issue is to build a single component e.g. into armv5 target, 
+  after which it is possible to run analysis against SIS file. It is possible to select any target 
+  type (armv5, gcce, ...) along with SIS file because it cannot be checked beforehand that 
+  the selected target is the same that is used to build SIS file from (which is of course
+  what is wanted/needed for correct dependency analysis).</li>
+<li><b>Show Source File</b> functionality fails in case signature keyword order differs between cache data and map file data.
+    For instance, if method signature in cache file is of format <code>Math::Frac(double&, double const&)</code> and signature
+    in map file is of format <code>Math::Frac(double&, const double&)</code> matching function is not found from map file because
+    the different keyword ordering. There is no workaround for this issue.
+</li>
+</ul>
+
+<h3>Version history</h3>
+<h5>Version 2.4.2 &ndash; 26th August 2009 and Version 2.4.3 &ndash; 14th October 2009</h5>
+<ul>
+<li>Fix: If you change the SDK and the build target selection when you already have a component under analysis,
+  and you select a component that has the exactly same name than the previously analysed component, the dependency 
+  data is not reloaded for the new component. However, when you click nodes in the component tree, you will get function and
+  component property data from the new SDK. The workaround is to select another component, and then reselect
+  the component that was under analysis previously.</li>
+<li>Fix: If you in the <b>Add SIS files</b> dialog add two or more SIS files that contain components with exactly the same name, the loading
+  of cache data fails right after you select a component under analysis. This happens because all SIS files are currently considered as a single build target that cannot have duplicate components. The workaround is to separately analyse those SIS files that have overlapping components.
+</li>
+</ul>  
+
+
+<h5>Version 2.4.0 &ndash; 29th April 2009 and Version 2.4.1 &ndash; 18th June 2009</h5>
+<ul>
+<li>Feature: New <b>Build Target Selection</b> wizard page</li> 
+	<ul>
+	<li>offers now more information on the shown targets (type, component count, and status text),</li>
+	<li>filters out by default unusable targets (non-supported and empty ones),</li>
+	<li>offers separate modes for selecting either Release (urel) or Debug targets (udeb), preventing mixing of them unintentionally, and</li>
+	<li>offers access to the Add SIS files dialog instead of having a separate wizard page for adding SIS files.</li>
+	</ul>
+<li>Feature: New <b>Add SIS files</b> dialog enables adding SIS files from multiple different folder locations</li>.
+<li>Change: <b>Component Selection</b> wizard page enhancements</li>
+	<ul>
+	<li>the page contains now more data columns (name, target, and data modified), and</li>
+	<li>the search field does "contains string" search instead of earlier "starts with" search.</li>
+	</ul>
+<li>Change: SDK Selection wizard usability has been improved by splitting it into two separate pages: </b>SDK Selection</b> and <b>Build Target Selection</b> wizard pages.</li>	
+<li>Change: Other enhancements</li>
+	<ul>
+	<li>Toolbar and menu actions are now disabled whenever they cannot be used (except for the Update cache action in which disabling is not regarded as a viable solution because it requires hard disk polling).</li>
+    <li>The <b>Cache Generation Options</b> wizard page shows now version number for the currently used RVCT toolchain.</li> 
+	<li>The executable <i>elftran.exe</i> is now used for Symbian OS 9.x targets for dumping dependency data from binaries.</li>
+	<li>If after using the <b>Locating components</b> feature it is possible to resolve earlier missing imported function names from exported functions data, it is done automatically.</li>
+	<li>The name column sort in the <b>Component List</b> view (opened after an Is Used By query) ignores case, that is, now all components starting with the same letter are listed one after the other regardless of the case.</li> 	  
+	</ul>	
+<li>Fix: Bundled a new <i>appdep.exe</i> command-line program with the following fixes
+	<ul>
+	<li><i>appdep.exe</i> uses now <i>petran.exe</i> for GCC toolchain targets and <i>elftran.exe</i> for other targets.</li>
+	<li><i>appdep.exe</i> parses now function data correctly also from libraries containing the hyphen character (-) in the library name (e.g. from library named <i>libdbus-utils{000a0000}[20010154].dll</i>).</li>
+	</ul> 
+<li>Fix: Fixed the issue causing the "Cache data re-load failed" error message. Also improved error logging in case a similar error occurs later on in a newer SDK environment not yet foreseen.</li>  
+</ul>  
+
+
+<h5>Version 2.3.0 &ndash; 20th February 2009</h5>
+<ul>
+<li>Change: Double-click in 'Component List' view sets selected component as new root component if 'Don't ask' checkbox
+  is selected under 'Confirm set as new root action' group from preferences. Otherwise, it is confirmed if a user
+  really wants to set clicked component as new root component.</li>
+<li>Fix: Fixed the following bug in Component Selection dialog: "When selecting component for the first time, if one scrolls down and tries 
+  to select a component, what actually gets selected is the component that would have got selected without scrolling down".   
+  The original behavior was implemented because the original wish was to be able to move between fields with tab, and after focus 
+  is moved to component list, it would be possible to "Finish" the component selection by just pressing enter key. After the bug fix
+  this is no more possible. The workaround to mimic this with fixed implementation: start dialog, press tab key for activating
+  first component, select right arrow key for component selection, and press enter key to finish the dialog.</li>
+<li>Fix: Fixed the following issue: "'Show Source File' functionality fails when multiple targets are selected simultaneously 
+  (e.g. when armv5+armv6 urel targets are selected)." Also other show source functionality related actions work
+  now also when multiple targets are selected.</li>
+</ul>  
+
+
+<h5>Version 2.2.2 &ndash; 24th October 2008, Version 2.2.3 &ndash; 7th January 2009, and Version 2.2.4 &ndash; 15th January 2009</h5>
+<ul>
+<li>Change: In <b>Viewing source file</b> feature added better heuristic for finding source file and correct function 
+  location from the opened source file.</li>
+</ul>
+
+<h5>Version 2.2.1 &ndash; 11th September 2008</h5>
+<ul>
+<li>Feature: <b>Searching for components and functions</b> feature enables searching
+of components, imported functions and exported functions from the currently
+selected target platform cache(s). Search results can be copied to clipboard
+for further processing, and double-clicking of a search result item opens
+the corresponding component as a new root component.</li>
+<li>Feature: <b>Locating components</b> feature enables showing also component tree
+for the components that are dependent upon based on generic component name
+(for example <i>hal.dll</i>). Those components do not exist as such in cache
+data but may have multiple concrete implementations (for example <i>hal.dll
+</i> has multiple implementations <i>_h4hrp_hal.dll, _template_hal.dll, _h2_hal.dl
+</i>l etc.). There are two options for locating components:
+	<ul>
+	<li>Locating manually from component list by selecting <b>Locate Component...</b> action from context menu (user-bind)</li>
+	<li>Defining known component prefixes (for example <i>_h4hrp_</i>) in the preferences page and correct component instances are located automatically (auto-bind).</li>
+	</ul>
+</li>
+<li>Feature: <b>Viewing source file</b> feature adds an action to Imported and Exported
+Functions tabs. The action opens up for viewing the source file that implements
+the currently selected function.</li>
+<li>Feature: <b>Viewing source file in project</b> feature adds an action to Imported
+and Exported Functions tabs. The action opens up for viewing the project and
+source file that implements the currently selected function.</li>
+<li>Feature: <b>Viewing method call locations</b> feature adds an action to Imported
+Functions tab. The action opens up the project for the component that uses
+the currently selected function, and searches for all instances where the
+selected function is called from the component.</li>
+<li>Change: Building of cache indices is a bit faster than in previous releases.</li>
+<li>Change: New data model for storing and handling cache data offers faster 'Is Used
+By...' queries than in previous releases.</li>
+</ul>
+
+
+<h5>Version 2.1.7 &ndash; 29th April 2008</h5>
+<ul>
+<li>Feature: Added support for selecting and using multiple target platforms. </li>
+<li>Feature: Added the <b>Find</b> dialog that enables finding components from the dependency tree based on a given name (or part of the component name). </li>
+<li>Feature: Added the possibility to analyse components from Symbian OS Installation (SIS) files together with an existing target platform. </li>
+<li>Feature: Added <b>Update Cache</b> action that enables quick cache update for the currently selected target platforms.</li>
+<li>Change: Allowing two second tolerance in component modification times before a
+component is regarded as changed and therefore, the cache file needs to be
+updated. This is because if the cache file has been generated with a different
+operating system, the time stamps may not be exactly same.</li>
+<li>Doc: Added support for context-sensitive help.</li>
+</ul>
+
+<div id="footer">
+Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies).<br>
+All rights reserved. <br>
+This component and the accompanying materials are made available <br>
+under the terms of "Eclipse Public License v1.0" <br>
+which accompanies this distribution and is available <br>
+at the URL <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.
+<br><br>
+Initial Contributors:<br>
+Nokia Corporation - initial contribution
+<br><br>
+Contributors:<br>
+Description:
+
+</div>
+</body>
+</html>

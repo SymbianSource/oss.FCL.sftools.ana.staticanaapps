@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.nokia.carbide.extensions.appdep"
+      label="Carbide.c++ Extensions - Dependency Explorer"
+      version="2.4.4.qualifier"
+      provider-name="Nokia"
+      plugin="com.nokia.carbide.cpp">
+
+   <description>
+      Dependency Explorer is a tool for analysing static dependencies between components.
+   </description>
+
+   <copyright>
+      Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies). 
+All rights reserved. License: 
+http://www.eclipse.org/legal/epl-v10.html.
+   </copyright>
+
+   <license url="license.txt">
+      Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies). 
+All rights reserved.
+This component and the accompanying materials are made available
+under the terms of &quot;Eclipse Public License v1.0&quot;
+which accompanies this distribution, and is available
+at the URL &quot;http://www.eclipse.org/legal/epl-v10.html&quot;.
+Part of the graphics of the program are from Eclipse 3.1 platform
+and CDT project in Eclipse community, which are made available
+under
+the terms of the Eclipse Public License v1.0.
+A copy of the EPL is provided at
+http://www.eclipse.org/legal/epl-v10.html
+GNU Binutils - c++filt
+This Nokia Product includes Open Source Software. Certain software
+included in this Nokia Product is licensed and distributed under
+GNU General Public License (GPL), the GNU Lesser General Public
+License 
+(LGPL, a.k.a. the GNU Library General Public License) and/ or
+other 
+copyright licenses, disclaimers and notices containing obligation
+or 
+permission to provide the source code of such software with the
+binary / executable form delivery of the said software. 
+The source code is delivered to you in accordance with the referred
+license terms and conditions in the media attached to this document.
+The exact license terms of GPL and LGPL and said certain other
+licenses, 
+as well as the required copyright and other notices, permissions
+and 
+acknowledgements are reproduced in and delivered to you as part
+of 
+the referred source code.
+   </license>
+
+   <url>
+      <update label="Carbide.c++ Update Site" url="http://tools.ext.nokia.com/updates/carbide22"/>
+      <discovery label="Carbide.c++ Update Site" url="http://tools.ext.nokia.com/updates/carbide22"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="com.nokia.s60tools.sdk" version="1.3.1" match="greaterOrEqual"/>
+      <import plugin="com.nokia.s60tools.util" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.cdt.core"/>
+      <import plugin="org.eclipse.cdt.ui"/>
+      <import plugin="org.eclipse.search"/>
+      <import plugin="com.nokia.s60tools.ui" version="1.4.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.nokia.s60tools.appdep"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.nokia.s60tools.appdep.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

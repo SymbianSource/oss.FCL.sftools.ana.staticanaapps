@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Analysing components</title>
+<link href="../../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Analysing components</h2>
+<p>To get started with the analysis, select a component to view its dependency information. All the components that the selected component is using are displayed in the Dependency Explorer view.</p>
+<p><img src="screenshots/shot_depview.png"></p>
+<ul>
+<li><img src="screenshots/bin_obj.png"> When you double-click a component node that has children, the hierarchy of that node only is displayed. </li>
+<li><img src="screenshots/bin_obj_link.png"> When you double-click a component link node, the component node that the link node refers to is highlighted on the main hierarchy. </li>
+</ul>
+
+<h3>Is Used By...<a name="usedby"></a></h3>
+<p>To analyse which components are using the selected component or function, do the following: </p>
+<ol>
+<li>Right-click the component or function. </li>
+<li>From the pop-up menu, select <b>Is Used By...</b>.</li>
+<li>When the analysis is finished, the results are displayed on the <b>Component List</b> tab.
+<p><img src="screenshots\sample_used_by_components.png"></p></li>
+<li>(Optional) To generate and save the findings as an HTML report, right-click anywhere on the tab and select <b>Export report...</b> For more information on reports, see <a href="../tasks/export_report.htm">Exporting the report</a>.</li>
+</ol>
+
+<h3>Changing the component to be analysed</h3>
+<p>To change the component you want to analyse, do any of the following: </p>
+<ul>
+<li>Right-click a node in the hierarchy and select <b>Set As New Root Component</b>. </li>
+<li>Double-click the root component (for example, <i>notepad.exe</i> in the above example), and choose a different one in the <b>Component Selection</b> page.</li>
+<li>Click the <b>Select a New Root Component</b> button on the toolbar and choose a component in the <b>Component Selection</b> page. </li>
+</ul>
+<p><b>Tip:</b> Dependency Explorer notifies you if the cache for your current build target has become outdated since it was first generated. You can update it by clicking <b>Yes</b> in the confirmation dialog, or update it at any time by clicking the <b>Update cache</b> button on the toolbar. The cache is updated with the default options.</p>
+
+<h5>Related tasks</h5>
+<ul>
+	<li><a href="check_comp_prop.htm">Checking component properties</a></li>
+	<li><a href="check_imp_func.htm">Checking imported functions</a></li>
+	<li><a href="check_exp_func.htm">Checking exported functions</a></li>
+	<li><a href="export_report.htm">Exporting the report</a></li>
+</ul>
+
+<h5>Related references</h5><ul>
+	<li><a href="../references/toolbar.htm">Toolbar</a></li>
+</ul>
+
+<h5>Related concepts</h5>
+<ul>
+	<li><a href="../concepts/component.htm">Component</a></li>
+</ul>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div> 
+
+</body>
+</html>

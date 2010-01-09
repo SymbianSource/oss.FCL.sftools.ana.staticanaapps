@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Tasks">
+	
+	<!-- Enter topic entries here for Tasks section of help -->
+	<topic label="Configuring data sources" href="html/tasks/configure_data_sources.htm" />
+	<topic label="Running an API query from the Search tab" href="html/tasks/query_from_search_tab.htm" />
+	<topic label="Running an API query from the context menu" href="html/tasks/query_from_context_menu.htm">
+		<topic label="Running an API Query based on the source code identifier" href="html/tasks/query_for_source_code_identifier.htm" />
+		<topic label="Running an API Query for a project" href="html/tasks/query_for_project.htm" />
+	</topic>
+</toc>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Overview</title>
+<link href="../../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Overview</h2>
+<p>Dependency Explorer is a tool for analysing static dependencies within Symbian OS SDKs. It can be used to analyse the components and functions that a component is using, or to see which components are using a specific function or component. Dependency Explorer is capable of handling third-party components just like any other SDK components.</p>
+<p>The tool generates a cache file by reading the data from all binaries and import libraries within a release, by using an external compiler tool set. The use of a cache file is a fast way to make a dependency review, such as which dependencies a binary has, or to generate dependency lists to a component or a function. The tool can also be used to view the properties of a binary.</p>
+<p>The core of Dependency Explorer is a command line tool that has a UI integrated with Carbide.c++ IDE.</p>
+
+<p><b>NOTE!</b> Dependency Explorer does not support emulator environment (winscw) because of the different binary formats in Symbian OS and Windows environments. To check dependencies in an emulator environment, use any dependency analysis tool for Windows (for example, <a href="http://www.dependencywalker.com/" target="_new">Dependency Walker</a>).</p>
+
+<h3>Elftran</h3>
+<p>Elftran is a Symbian tool that Dependency Explorer Carbide.c++ Extension uses to read binary data as header information and the DLL reference table from an <i>E32ImageFile</i>.</p> 
+<p>Note that there are two versions of this tool:</p>
+<ul> 
+<li><i>Elftran.exe</i>: used by default, supports the GCCE and RVCT toolchains (used in Symbian OS 9.x).</li>
+<li><i>Petran.exe</i>: supports the GCC toolchain only (used in Symbian OS versions prior to 9.x).</li> 
+</ul>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+
+</body>
+</html>

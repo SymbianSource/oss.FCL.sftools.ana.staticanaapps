@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Searching for components and functions</title>
+<link href="../../book.css" type="text/css" rel="stylesheet"></head>
+<body>
+
+<h2>Searching for components and functions</h2>
+<p>The <b>Search...</b> function can be used for searching for components, imported functions and exported functions from a selected SDK. The default search scope used for the search dialog is based on the view from which the search action is started.</p>
+<p>To search components and functions:</p>
+<ol>
+<li>Right-click a component in the component tree or an imported or exported function in the <b>Imported Functions</b> or <b>Exported Functions</b> tab.</li>
+<li>Write a search string in the<b> Search string</b> field.</li>
+<li>Select the search target: (<b>Components</b>, <b>Imported functions</b>, or <b>Exported functions</b>).</li>
+<li>Define the match types:
+<ul>
+<li><b>Contains</b>: Matches when the search string is included in the object name.</li>
+<li><b>Starts With</b>: Matches when the object name starts with the search string.</li>
+<li><b>Ends With</b>: Matches when the object name ends with the search string.</li>
+<li><b>Exact Match</b>: Matches when the object name and the search string equals.</li>
+<li><b>Regular Expression</b>: Matches when the search string as regular expression matches with the object name.</li>
+</ul>
+<p><b>Note!</b> The <b>Case sensitive</b> check box can be used for other match types except for the <b>Regular Expression</b> type.</p>
+<p><b>Note!</b> For <b>Imported</b> and <b>Exported Functions'</b> <b>Contains</b> and <b>Regular Expression</b> search types, use the full function name, <i>prefix::baseName(parameterlist)</i> for matching, but for other search types, use the function's base name only. For example, the full method name is <i>CEikAppUi::CreateFileL(TDesC16 const&amp;)</i>, but the function base name is <i>CreateFileL</i>.</p></li>
+<li>Click <b>Search</b>.</li>
+<li>Double-click a search result from the list, and it appears in the corresponding component, imported function, or exported function in the main view. If the component is not already existing in component tree, it is opened as a root component. If you check the <b>Confirm set as new root in Search dialog</b> check box, the component is automatically set as a new root without confirmation, and the confirmation is not asked anymore. Note that you can also change the preferences. For instructions on changing preferences, see <a href="..\tasks\setting_preferences.htm">Setting preferences</a>.
+<p>Now you can analyse the component or function in more detail. For more information, see <a href="..\tasks\analyse_component.htm">Analysing components</a>.</p></li>
+<li>(Optional) You can copy the search result by right-clicking it and selecting <b>Copy</b>.</li>
+</ol>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div> 
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.index"?>
+
+	<!-- INDEX INSTRUCTIONS
+	
+	Use the index.xml file to define the index entries for the plugin's 
+	help contents. In Eclipse 3.2 and beyond an Index tab appears in the Help
+	viewer making it possible for user to more easily locate subjects of
+	interest to them.
+		
+	In brief, every file used in the help documentation should have at least one
+	associated index entry for it. Ideally, it's simple to make two entries per
+	page by simply re-wording the subject slightly. For example, a view could
+	be indexed twice like this, 1) Breakpoint view, and 2) Views/Breakpoint.
+	
+	See ??? for details on creating indexes.
+	
+	-->
+
+<index>
+
+	<!-- AAAAAAAA -->
+	
+	<entry keyword="adding third party components" >
+		<topic href="html/concepts/component.htm" />
+	</entry>
+
+	<entry keyword="adding SIS files" >
+		<topic href="html/tasks/selecting_platform.htm#add_sis" />
+	</entry>
+
+	<entry keyword="analysing components" >
+		<topic href="html/tasks/analyse_component.htm" />
+	</entry>
+	
+	<!-- BBBBBBBB -->
+	
+	<!-- CCCCCCCC -->	
+	
+	<entry keyword="cache generation options" >
+		<topic href="html/tasks/selecting_platform.htm#generate_cache" />
+	</entry>
+
+	<entry keyword="checking component properties" >
+		<topic href="html/tasks/check_comp_prop.htm" />
+	</entry>
+	
+	<entry keyword="checking exported functions" >
+		<topic href="html/tasks/check_exp_func.htm" />
+	</entry>
+
+	<entry keyword="checking imported functions" >
+		<topic href="html/tasks/check_imp_func.htm" />
+	</entry>
+
+	<entry keyword="component navigation" >
+		<topic href="html/references/toolbar.htm" />
+	</entry>
+	
+	<entry keyword="components, overview" >
+
+		<topic href="html/concepts/component.htm" />
+
+		<entry keyword="analysing" >
+			<topic href="html/tasks/analyse_component.htm" />
+		</entry>
+
+		<entry keyword="searching" >
+			<topic href="html/tasks/search_comp.htm" />
+		</entry>
+
+		<entry keyword="selecting" >
+			<topic href="html/tasks/selecting_platform.htm#select_components.htm" />
+		</entry>
+
+		<entry keyword="properties" >
+			<topic href="html/tasks/check_comp_prop.htm" />
+		</entry>
+
+	</entry>
+	
+	<!-- DDDDDDDD -->	
+
+	<entry keyword="dependency analysis" >
+		<topic href="html/gettingstarted/overview.htm" />
+	</entry> 
+
+	<entry keyword="Dependency Explorer, overview" >
+		<topic href="html/gettingstarted/overview.htm" />
+
+		<entry keyword="basic walk-through" >
+			<topic href="html/gettingstarted/walk_through.htm" />
+		</entry>
+
+	</entry>
+	
+	<!-- EEEEEEEE -->	
+	
+	<entry keyword="exporting reports" >
+		<topic href="html/tasks/export_report.htm" />
+	</entry>
+
+	<entry keyword="exported functions" >
+		<topic href="html/tasks/check_exp_func.htm" />
+	</entry>
+	
+	<!-- FFFFFFFF -->
+	
+	<entry keyword="functions, overview" >
+		<topic href="html/concepts/function.htm" />
+
+		<entry keyword="exported" >
+			<topic href="html/tasks/check_exp_func.htm" />
+		</entry>
+
+		<entry keyword="imported" >
+			<topic href="html/tasks/check_imp_func.htm" />
+		</entry>
+
+	</entry>
+
+	<entry keyword="finding, components" >
+		<topic href="html/tasks/search_comp.htm" />
+	</entry>
+
+	
+	<!-- GGGGGGGG -->	
+
+	<entry keyword="generating cache" >
+		<topic href="html/tasks/selecting_platform.htm#generate_cache" />
+	</entry>
+
+	<!-- HHHHHHHH -->	
+	
+	<!-- IIIIIIII -->
+
+	<entry keyword="imported functions" >
+		<topic href="html/tasks/check_imp_func.htm" />
+	</entry>
+	
+	<!-- JJJJJJJJ -->
+	
+	<!-- KKKKKKKK -->
+	
+	<!-- LLLLLLLL -->
+	
+	<!-- MMMMMMMM -->
+
+	<entry keyword="managing SDKs" >
+		<topic href="html/tasks/manage_platforms.htm" />
+	</entry>
+
+	<!-- NNNNNNNN -->
+	
+	<!-- OOOOOOOO -->
+	
+	<!-- PPPPPPPP -->
+
+	<entry keyword="platforms, cache generation" >
+		<topic href="html/tasks/selecting_platform.htm#generate_cache" />
+	</entry>
+
+	<entry keyword="properties, components" >
+		<topic href="html/concepts/properties.htm" />
+	</entry>
+	
+	<!-- QQQQQQQQ -->
+	
+	<!-- RRRRRRRR -->
+
+	<entry keyword="Release Notes" >
+		<topic href="html/release_notes.htm" />
+	</entry>
+
+	<entry keyword="report, dependencies" >
+		<topic href="html/tasks/export_report.htm" />
+	</entry>
+
+	<!-- SSSSSSSS -->
+
+	<entry keyword="SDKs, overview" >
+		<topic href="html/concepts/platform.htm" />
+		</entry>
+
+	<entry keyword="selecting SDK" >
+		<topic href="html/tasks/selecting_platform.htm" />
+	</entry>
+
+	<entry keyword="searching, components" >
+		<topic href="html/tasks/search_comp.htm" />
+	</entry>
+
+	<entry keyword="SIS files, adding" >
+		<topic href="html/tasks/selecting_platform.htm#add_sis" />
+	</entry>
+
+
+	<!-- TTTTTTTT -->
+
+	<entry keyword="target platforms" >
+		<topic href="html/tasks/selecting_platform.htm" />
+	</entry>
+	
+	<entry keyword="third party components" >
+		<topic href="html/concepts/component.htm" />
+	</entry>
+	
+	<!-- UUUUUUUU -->
+	
+	<!-- VVVVVVVV -->
+	
+	<!-- WWWWWWWW -->
+	
+	<!-- XXXXXXXX -->
+	
+	<!-- YYYYYYYY -->
+	
+	<!-- ZZZZZZZZ -->
+
+</index>
+
+

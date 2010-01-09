@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.contexts"?>
+<contexts>
+
+	<context id="API_QUERY_HELP_SEARCH_TAB">
+	      	<description>Search tab</description>	   
+			<topic label="Running an API query from the Search tab" href="html/tasks/query_from_search_tab.htm" >    	
+			</topic>
+			<topic label="Running an API query from the context menu" href="html/tasks/query_from_context_menu.htm" >    	
+			</topic>
+	</context>	  
+		    
+	<context id="API_QUERY_HELP_PROPERTIES_TAB">
+	      	<description>Properties tab</description>	   
+			<topic label="Configuring data sources" href="html/tasks/configure_data_sources.htm" >
+			</topic>
+	</context>    
+
+     		     
+</contexts>

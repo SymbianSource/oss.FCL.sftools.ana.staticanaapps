@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.nokia.s60tools.apiquery" default="cc" basedir=".">
+
+	<!-- Targets -->
+	<target name="cc" depends="clean-test, jar, analyze, feature, test, zip" description="Build, instrument, run unit tests and analyze code"/>
+
+
+	<property name="basews" value="${ws}"/>
+	<property name="baseos" value="${os}"/>
+	<property name="basearch" value="${arch}"/>
+	<property name="basenl" value="${nl}"/>
+
+	<!-- Compiler settings -->
+	<property name="javacFailOnError" value="true"/>
+	<property name="javacDebugInfo" value="on"/>
+	<property name="javacVerbose" value="false"/>
+	<property name="logExtension" value=".log"/>
+	<property name="compilerArg" value=""/>
+	<property name="javacSource" value="5"/>
+	<property name="javacTarget" value="5"/>
+	
+	<property name="bootclasspath" refid="path_bootclasspath"/>
+	<property name="bundleJavacSource" value="${javacSource}"/>
+	<property name="bundleJavacTarget" value="${javacTarget}"/>
+	<property name="bundleBootClasspath" value="${bootclasspath}"/>
+	
+	<property name="feature.name" value="APIQuery"/>
+	<property name="feature.project.name" value="com.nokia.carbide.extension.apiquery"/>
+	<property name="feature.project.folder" location="../com.nokia.carbide.extensions.apiquery"/>
+	<property name="cache.name" value="${ant.project.name}.cache"/>
+	<property name="ifsheets.name" value="${ant.project.name}.ifsheets"/>
+	<property name="web.name" value="${ant.project.name}.web"/>
+	
+
+	<property name="help.project.name" value="${ant.project.name}.help"/>
+	<property name="help.cache.name" value="${ant.project.name}.cache.help"/>
+	<property name="help.ifsheets.name" value="${ant.project.name}.ifsheets.help"/>
+	<property name="help.web.name" value="${ant.project.name}.web.help"/>
+	
+	<property name="help.jar.filename" value="${help.project.name}.jar"/>
+	<property name="help.cache.filename" value="${help.cache.name}.jar"/>
+	<property name="help.ifsheets.filename" value="${help.ifsheets.name}.jar"/>
+	<property name="help.web.filename" value="${help.web.name}.jar"/>
+	
+	<property name="jar.filename" value="${ant.project.name}.jar"/>
+	<property name="cache.jar.filename" value="${ant.project.name}.cache.jar"/>
+	<property name="ifsheets.jar.filename" value="${ant.project.name}.ifsheets.jar"/>
+	<property name="web.jar.filename" value="${ant.project.name}.web.jar"/>
+	<property name="help.jar.filename" value="${help.project.name}.jar"/>
+	
+	<!-- Folder definitions -->
+	<property name="cache.folder" location="../${cache.name}"/>
+	<property name="ifsheets.folder" location="../${ifsheets.name}"/>
+	<property name="web.folder" location="../${web.name}"/>
+	<property name="test.folder" location="../${ant.project.name}.tests"/>
+	<property name="test.cache.folder" location="../${ant.project.name}.cache.tests"/>
+	<property name="test.ifsheets.folder" location="../${ant.project.name}.ifsheets.tests"/>
+	<property name="test.web.folder" location="../${ant.project.name}.web.tests"/> 
+	<property name="binaries.folder" location="${basedir}/../${feature.name}.binaries"/>
+	
+	<!-- Carbide layouts -->
+	<property name="carbide.dev.folder" location="c:/Carbide_development/plugins"/>
+	<property name="carbide.int.folder" location="c:/Carbide_internal/plugins"/>
+	<property name="carbide.adt.folder" location="c:/Carbide_ADT/plugins"/>
+	
+	<property name="reports.folder" location="../reports"/>
+	<property name="reports.emma" location="${reports.folder}/emma"/>
+	<property name="instr.folder" location="instr"/>
+	
+	
+	<!-- EMMA configuration -->
+ 	<path id="emma.lib" >
+    	<pathelement location="${ant.home}/lib/emma.jar" />
+    	<pathelement location="${ant.home}/lib/emma_ant.jar" />
+  	</path>
+
+  	<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+	
+	<!-- PMD configuration -->
+	<path id="pmd.lib" >
+    	<pathelement location="${ant.home}/lib/pmd-4.2.jar" />
+    	<pathelement location="${ant.home}/lib/asm-3.1.jar" />
+    	<pathelement location="${ant.home}/lib/jaxen-1.1.1.jar" />
+  	</path>
+	
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.lib" />
+	
+	<path id="path_bootclasspath">
+		<fileset dir="${java.home}/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>	
+	
+	<path id="build_classpath">
+		<path refid="carbide_classpath"/>
+	</path>
+	
+	<!-- Select Carbide layout -->
+	<path id="carbide_classpath">
+		<fileset dir="${carbide.int.folder}" includes="**/*.jar" />
+	</path>
+	
+	<target name="properties" if="eclipse.running">
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+	</target>
+
+	<!-- Initialization -->
+	<target name="init" depends="properties">
+		<condition property="pluginTemp" value="${buildTempFolder}/plugins">
+			<isset property="buildTempFolder"/>
+		</condition>
+		<property name="pluginTemp" value="${basedir}"/>
+		<condition property="build.result.folder" value="${pluginTemp}/${ant.project.name}">
+			<isset property="buildTempFolder"/>
+		</condition>
+		<property name="build.result.folder" value="${basedir}"/>
+		<property name="temp.folder" value="${basedir}/temp.folder"/>
+		<property name="plugin.destination" value="${basedir}"/>
+
+		<property name="jar.filename" value="${ant.project.name}.jar"/>
+		
+		<delete dir="${reports.folder}"/>
+		<mkdir dir="${reports.folder}"/>
+		
+		<delete dir="../plugins"/>
+		<mkdir dir="../plugins"/>
+		
+		<!-- Delete build folders -->
+		<delete dir="com"/>
+		<delete dir="${cache.folder}/com"/>
+		<delete dir="${ifsheets.folder}/com"/>
+		<delete dir="${web.folder}/com"/>
+		
+		<exec executable="svn" dir="../.">
+			<arg line="up"/>
+		</exec>
+	</target>
+
+	<!-- Build target -->
+	<target name="build" depends="init" description="Build the source">
+	
+		<!-- Build the source -->
+		<javac destdir="" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}">
+			<compilerarg line="${compilerArg}" compiler="${build.compiler}"/>
+			<classpath refid="build_classpath" />
+			<src path="src/" />
+			<compilerarg value="@${basedir}/javaCompiler...args" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+			<compilerarg line="-log '${temp.folder}/bin${logExtension}'" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+		</javac>
+		
+		<!-- Build the source -->
+		<javac destdir="${cache.folder}" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}">
+			<compilerarg line="${compilerArg}" compiler="${build.compiler}"/>
+			<classpath refid="build_classpath" />
+			<src path="${cache.folder}/src/" />
+			<compilerarg value="@${basedir}/javaCompiler...args" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+			<compilerarg line="-log '${temp.folder}/bin${logExtension}'" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+		</javac>
+		
+		<!-- Build the source -->
+		<javac destdir="${ifsheets.folder}" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}">
+			<compilerarg line="${compilerArg}" compiler="${build.compiler}"/>
+			<classpath refid="build_classpath" />
+			<src path="${ifsheets.folder}/src/" />
+			<compilerarg value="@${basedir}/javaCompiler...args" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+			<compilerarg line="-log '${temp.folder}/bin${logExtension}'" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+		</javac>
+		
+		<!-- Build the source -->
+		<javac destdir="${web.folder}" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}">
+			<compilerarg line="${compilerArg}" compiler="${build.compiler}"/>
+			<classpath refid="build_classpath" />
+			<src path="${web.folder}/src/" />
+			<compilerarg value="@${basedir}/javaCompiler...args" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+			<compilerarg line="-log '${temp.folder}/bin${logExtension}'" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+		</javac>
+
+		<!-- Copy necessary resources -->
+		<copy todir="" failonerror="true" overwrite="false">
+			<fileset dir="src/" excludes="**/*.java, **/package.htm*" />
+		</copy>
+		
+		<!-- Copy necessary resources -->
+		<copy todir="${cache.folder}" failonerror="true" overwrite="false">
+			<fileset dir="${cache.folder}/src/" excludes="**/*.java, **/package.htm*" />
+		</copy>
+		
+		<!-- Copy necessary resources -->
+		<copy todir="${ifsheets.folder}" failonerror="true" overwrite="false">
+			<fileset dir="${ifsheets.folder}/src/" excludes="**/*.java, **/package.htm*" />
+		</copy>
+		
+		<!-- Copy necessary resources -->
+		<copy todir="${web.folder}" failonerror="true" overwrite="false">
+			<fileset dir="${web.folder}/src/" excludes="**/*.java, **/package.htm*" />
+		</copy>
+
+		<!-- Create build result folder -->
+		<mkdir dir="${build.result.folder}"/>
+
+	</target>
+
+	
+	<!-- JAR target -->
+	<target name="jar" depends="build" description="Create JAR">
+
+		<!-- Create JARs -->
+		<zip destfile="../plugins/${jar.filename}">
+				<fileset dir="${build.result.folder}">
+						  <include name="META-INF/**"/>		
+							<include name="com/**"/>
+							<include name="resources/**"/>    
+						  <include name="icons/**"/>
+						  <include name="plugin.xml"/>
+						  <include name="about.html"/>
+						  <include name="about.ini"/>
+						  <include name="about.mappings"/>
+						  <include name="about.properties"/>
+						  <include name="plugin.properties"/>
+				</fileset>
+		</zip>
+		
+		<zip destfile="../plugins/${cache.jar.filename}">
+				<fileset dir="${cache.folder}">
+						 	<include name="META-INF/**"/>		
+							<include name="com/**"/>
+						  <include name="about.html"/>
+						  <include name="plugin.xml"/>
+				</fileset>
+		</zip>
+		
+		<zip destfile="../plugins/${ifsheets.jar.filename}">
+				<fileset dir="${ifsheets.folder}">
+						 	<include name="META-INF/**"/>		
+							<include name="com/**"/>
+						  <include name="about.html"/>
+						  <include name="plugin.xml"/>
+						  <include name="os/**"/>
+				</fileset>
+		</zip>
+		
+		<zip destfile="../plugins/${web.jar.filename}">
+				<fileset dir="${web.folder}">
+						 	<include name="META-INF/**"/>		
+							<include name="com/**"/>
+							<include name="plugin.xml"/>
+						  <include name="about.html"/>
+						  <include name="resources/default_server_entries.xml"/>
+				</fileset>
+		</zip>
+
+	</target>
+	
+	
+	<!-- Instrumentation target, depends on JAR -->
+	<target name="instr" depends="jar">
+		<!-- Instrument the source code -->
+		<emma>
+			<instr instrpath="com" destdir="${instr.folder}" metadatafile="${reports.emma}/metadata.emma" merge="true"/>
+			<instr instrpath="${cache.folder}/com" destdir="${instr.folder}" metadatafile="${reports.emma}/metadata.emma" merge="true"/>
+			<instr instrpath="${ifsheets.folder}/com" destdir="${instr.folder}" metadatafile="${reports.emma}/metadata.emma" merge="true"/>
+			<instr instrpath="${web.folder}/com" destdir="${instr.folder}" metadatafile="${reports.emma}/metadata.emma" merge="true"/>
+		</emma>
+	</target>
+	
+	
+
+	<!-- Feature target -->
+	<target name="feature" depends="jar" description="Create feature">
+		<property name="feature.folder" location="${binaries.folder}/feature"/>
+		
+		
+		<mkdir dir="${feature.folder}"/>
+		<mkdir dir="${feature.folder}/plugins"/>
+		<mkdir dir="${feature.folder}/features/${feature.project.name}"/>
+		<mkdir dir="${binaries.folder}/nightly_builds"/>		
+				
+		<!-- Create help JAR -->
+		<zip destfile="../plugins/${help.jar.filename}" basedir="../${help.project.name}" excludes="src/,.*"/>
+		<zip destfile="../plugins/${help.cache.filename}" basedir="../${help.cache.name}" excludes="src/,.*"/>
+		<zip destfile="../plugins/${help.ifsheets.filename}" basedir="../${help.ifsheets.name}" excludes="src/,.*"/>
+		<zip destfile="../plugins/${help.web.filename}" basedir="../${help.web.name}" excludes="src/,.*"/>
+		
+		<!-- Copy feature stuff to the temp folder -->
+		<copy todir="${feature.folder}/features/${feature.project.name}" file="${feature.project.folder}/feature.xml"/>
+		<copy todir="${feature.folder}/features/${feature.project.name}" file="${feature.project.folder}/license.txt"/>
+		
+		
+		
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}"/>
+		</exec>
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.help"/>
+		</exec>	
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.cache"/>
+		</exec>
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.cache.help"/>
+		</exec>			
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.ifsheets"/>
+		</exec>
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.ifsheets.help"/>
+		</exec>		
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.web"/>
+		</exec>
+		<exec dir="../" executable="bash" resolveexecutable="true" failonerror="true"> 
+				<arg value="-c"/>
+				<arg value="C:\\hudson\\jobs\\setPluginVersion.sh ${ant.project.name}.web.help"/>
+		</exec>
+		
+		
+		
+		<!-- Copy the actual plug-in to the feature folder -->
+		<copy todir="${feature.folder}/plugins">
+			<fileset dir="../plugins"/>
+		</copy>
+		
+		
+		<!-- Copy the actual plug-ins to the carbide folders -->
+		<copy todir="${carbide.int.folder}" failonerror="true" overwrite="true">
+				<fileset dir="${feature.folder}/plugins"/>
+		</copy>
+		<copy todir="${carbide.dev.folder}" failonerror="true" overwrite="true">
+				<fileset dir="${feature.folder}/plugins"/>
+		</copy>
+		<copy todir="${carbide.adt.folder}" failonerror="true" overwrite="true">
+				<fileset dir="${feature.folder}/plugins"/>
+		</copy>
+		
+	</target>
+	
+	<!-- Analyze target -->
+	<target name="analyze">
+		<!-- PMD -->
+		<pmd>
+				<!-- Rules -->
+				<ruleset>basic</ruleset>
+				<ruleset>codesize</ruleset>
+				<ruleset>coupling</ruleset>
+				<ruleset>design</ruleset>
+				<ruleset>strictexception</ruleset>
+				<ruleset>strings</ruleset>
+				<ruleset>sunsecure</ruleset>
+				<ruleset>unusedcode</ruleset>
+				<ruleset>junit</ruleset>
+				
+				<!-- XML output -->
+				<formatter type="xml" toFile="${reports.folder}/report.pmd.xml"/>
+				<formatter type="html" toFile="${reports.folder}/report.pmd.html"/>
+				
+				<!-- Files to analyze -->
+				<fileset dir="src/">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${test.folder}">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${cache.folder}/src/">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${test.cache.folder}/src/">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${ifsheets.folder}/src/">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${test.ifsheets.folder}/src/">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${web.folder}/src/">
+					<include name="**/*.java"/>
+				</fileset>
+				<fileset dir="${test.web.folder}/src/">
+					<include name="**/*.java"/>
+				</fileset>
+		</pmd>
+	</target>
+			
+	<!-- Clean tests target -->
+  	<target name="clean-test" description="Clean test">
+    	<delete>
+      		<fileset dir="${test.folder}" includes="**/*.class" />
+    	</delete>
+    	<delete dir="${instr.folder}"/>
+    	<delete dir="${reports.folder}"/>
+  	</target>
+  
+  	<!-- Test target, depends on instrumentation and analyze -->
+	<target name="test" depends="instr" description="Run unit tests">
+    	<!-- Test classpath -->
+    	<path id="test_classpath">
+			<!-- Test classes -->
+			<pathelement location="${test.folder}/src"/>
+			<pathelement location="${test.cache.folder}/src"/>
+			<pathelement location="${test.ifsheets.folder}/src"/>
+			<pathelement location="${test.web.folder}/src"/>
+			
+			<!-- Instrumented class files -->
+		   	<pathelement location="${instr.folder}"/>
+		   	
+		   	<!-- EMMA -->
+		   	<pathelement path="${ant.home}/lib/emma.jar"/>
+		   	
+		   	<fileset dir="${carbide.adt.folder}" includes="**/*.jar" />
+		</path>
+	
+		<!-- Compile the tests -->
+     	<javac srcdir="${test.folder}" verbose="${javacVerbose}">
+      		<classpath refid="test_classpath"/>
+	    </javac>
+	    <javac srcdir="${test.cache.folder}" verbose="${javacVerbose}">
+      		<classpath refid="test_classpath"/>
+	    </javac>
+	    <javac srcdir="${test.ifsheets.folder}" verbose="${javacVerbose}">
+      		<classpath refid="test_classpath"/>
+	    </javac>
+	    <javac srcdir="${test.web.folder}" verbose="${javacVerbose}">
+      		<classpath refid="test_classpath"/>
+	    </javac>
+		
+		<!-- Run JUnit -->
+	    <junit printsummary="yes" fork="yes" haltonfailure="no">
+	      	<classpath refid="test_classpath" />
+	      	
+	      	<!-- Plain format and XML -->
+	      	<formatter type="plain" />
+	      	<formatter type="xml" />
+			
+			<!-- Instrumentation arguments to JVM -->
+					<jvmarg value="-Demma.coverage.out.file=${reports.emma}/coverage.emma" />
+		    	<jvmarg value="-Demma.coverage.out.merge=true" />
+		    	<jvmarg value="-D_S60TOOLS_WS_PATH=C:\hudson\jobs\APIQuery\workspace\trunk" />
+
+			<!-- Test classes -->
+	      	<test name="com.nokia.s60tools.apiquery.tests.AllPureJUnitTests" todir="${reports.folder}"/>
+	      	<test name="com.nokia.s60tools.apiquery.cache.tests.AllPureJUnitTests" todir="${reports.folder}"/>
+	      	<test name="com.nokia.s60tools.apiquery.ifsheets.tests.AllPureJUnitTests" todir="${reports.folder}"/>
+	      	<test name="com.nokia.s60tools.apiquery.web.tests.AllPureJUnitTests" todir="${reports.folder}"/>
+	    </junit>
+	    
+	    <!-- Create EMMA report -->
+	    <emma>
+	    	<report sourcepath="src/" >
+            	<fileset dir="${reports.emma}" >
+                	<include name="*.emma" />
+            	</fileset>
+            	<xml outfile="${reports.emma}/coverage.xml" />
+            	<html outfile="${reports.emma}/coverage.html" />
+        	</report>
+	    </emma>
+	    
+			<copy todir="${binaries.folder}/reports" failonerror="true" overwrite="true">
+					<fileset dir="${reports.folder}" />
+			</copy>
+	    
+	</target>
+	
+	<!-- Make zip package of the feature and plugins -->
+	<target name="zip">
+	
+			<!-- Create the feature zip -->
+			<zip destfile="${binaries.folder}/${feature.name}.zip" basedir="${feature.folder}"/>
+			
+			<delete dir="${feature.folder}"/>
+			
+			<!-- Nightly build -->
+			<tstamp>
+			   <format property="timestamp" pattern="dd-MM-yyyy" />
+			</tstamp>
+	
+			<delete dir="${binaries.folder}/nightly_builds"/>
+	  	<mkdir dir="${binaries.folder}/nightly_builds"/>
+	
+			<copy tofile="${binaries.folder}/nightly_builds/${feature.name}-${timestamp}.zip" file="${binaries.folder}/${feature.name}.zip"/>
+			
+	</target>
+	
+</project>

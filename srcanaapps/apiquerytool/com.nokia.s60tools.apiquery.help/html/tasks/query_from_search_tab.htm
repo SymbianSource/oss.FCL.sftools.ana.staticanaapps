@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>Running an API query from the Search tab </title>
+<link href="../../book.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<h2>Running an API query from the Search tab</h2>
+
+<h5>Before you start</h5>
+<p>Make sure you have configured the data source you want to use. For instructions, see <a href="../tasks/configure_data_sources.htm">Configuring data sources</a>.</p>
+<p>To run API queries, do the following:</p>
+<ol>
+<li>Select the query type from the <b>Query by</b> group.<p><b>Note:</b> a different set of query types may be enabled depending on the configured data source. </p></li>
+<li>In the <b>Search string</b> field, enter the string you want to search for. <p>For example, <code>avkon</code> for an API name or <code>akna</code> for a header name, and so on. For multi search seperate the keyword with "; " character.  Wildcard characters (*,?) are not supported.</p></li>
+<li>To run the query, click <b>Search</b>.<p>The list of found APIs are shown in the <b>Search results</b> list, as shown in the example below.</p>
+<p><b>Single keyword search </b></p>
+<img src="screenshots/singlesearch.PNG">
+<p><b>Multi Keyword search</b></p>
+<img src="screenshots/multiserach.png">
+
+<p>The ID of the data source is shown in the brackets after the API name. If there are multiple data source entries configured, the same API may be listed once for each data source entry.</p>
+<p>To view only the API names in the <b>Search results</b> list, check the option <b>Show only API names</b>.</p></li>
+<li>Select the API of your choice from the list to view its details. <p>The information is fetched into the <b>API details</b> table and the value that fulfils the search criteria is highlighted with red, as shown in the example below.</p>
+<p><img src="screenshots/results.png"></p>
+<p>Headers can be opened  by clicking on the link provided in the api details tab.Header is opened in editor/web browser based on the selected data source.If the data source is sdk then it will be opened in editor.If the data source is webserver then it will be opened in s60lxr.</p>
+<p>Note: the data fields shown in the <b>API details</b> table can vary based on the current data source selection and headerlink will be enabled only when the serach is for header file.</p>
+</li>
+</ol>
+
+<h5>Related tasks</h5>
+<ul>
+<li><a href="../tasks/configure_data_sources.htm">Configuring data sources</a></li>
+<li><a href="../tasks/query_from_context_menu.htm">Running an API query from the context menu</a></li>
+</ul>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+</body>
+</html>
+

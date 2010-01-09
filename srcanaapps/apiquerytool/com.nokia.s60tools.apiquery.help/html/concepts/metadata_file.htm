@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<title>API metadata file</title>
+<link href="../../book.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<h2>API metadata file</h2>
+<p>A metadata file is used to provide information about an Application Programming Interface (API). Metadata files contain the following information of an API, as shown in the example below:</p>
+<p><code>
+&lt;?xml version="1.0"&nbsp;?><br>
+&lt;api id="16bdb6fdf38e8ced9e907a4eea1f68c5" dataversion="1.0"><br>
+&nbsp; &lt;name>Phone Parser API&lt;/name><br>
+&nbsp; &lt;description>This API is used to parse and validate phone numbers.&lt;/description><br>
+&nbsp; &lt;type>c++&lt;/type><br>
+&nbsp; &lt;subsystem>commonservices&lt;/subsystem><br>
+&nbsp; &lt;libs><br>
+&nbsp;&nbsp;&nbsp; &lt;lib name="CommonEngine.lib" /><br>
+&nbsp; &lt;/libs><br>
+&nbsp; &lt;release category="sdk" sinceversion="2.0"/><br>
+&nbsp; &lt;attributes><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;htmldocprovided>yes&lt;/htmldocprovided><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;adaptation>no&lt;/adaptation><br>
+&nbsp; &lt;/attributes><br>
+&lt;/api>
+</code></p>
+<p>Metadata files are identified by the extension <i>.metaxml</i>. The name of the file comes from the API name and should be the same as the API directory name. For example, if the API directory is&nbsp;<i>phone_parser_api</i>, the corresponding metadata file name should be <i>phone_parser_api.metaxml</i>. The file is located directly under the API's own directory.</p>
+<p><b>Tip:</b> These files can be created and edited in the Carbide.c++ development environment with the <i>Metadata Editor</i> tool. You can start the tool from the <b>Carbide > Metadata Editor</b> menu.</p>
+
+<div id="footer">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies). All rights reserved. 
+License: <a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</a>.</div>
+</body>
+</html>

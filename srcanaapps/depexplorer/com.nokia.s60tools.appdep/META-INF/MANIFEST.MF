@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Carbide.c++ Extensions - Dependency Explorer
+Bundle-SymbolicName: com.nokia.s60tools.appdep; singleton:=true
+Bundle-Version: 2.4.4.qualifier
+Bundle-Activator: com.nokia.s60tools.appdep.plugin.AppDepPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.nokia.s60tools.sdk;bundle-version="1.3.1",
+ com.nokia.s60tools.util;bundle-version="1.4.0",
+ com.nokia.s60tools.ui;bundle-version="1.4.0",
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.jface.text,
+ org.eclipse.cdt.core,
+ org.eclipse.cdt.ui,
+ org.eclipse.search
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Nokia
+Export-Package: com.nokia.s60tools.appdep,
+ com.nokia.s60tools.appdep.common,
+ com.nokia.s60tools.appdep.core,
+ com.nokia.s60tools.appdep.core.data,
+ com.nokia.s60tools.appdep.core.job,
+ com.nokia.s60tools.appdep.core.model,
+ com.nokia.s60tools.appdep.exceptions,
+ com.nokia.s60tools.appdep.export,
+ com.nokia.s60tools.appdep.locatecomponent,
+ com.nokia.s60tools.appdep.plugin,
+ com.nokia.s60tools.appdep.search,
+ com.nokia.s60tools.appdep.ui.views.data,
+ com.nokia.s60tools.appdep.util
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

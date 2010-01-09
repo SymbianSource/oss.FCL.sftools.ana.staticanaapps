@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.contexts"?>
+<contexts>
+
+<context id="APPDEP_MAIN_VIEW">
+ <description>Dependency Explorer's Main View</description>	   
+ <topic label="Managing SDKs" href="html/tasks/manage_platforms.htm" />    	
+ <topic label="Selecting SDK" href="html/tasks/selecting_platform.htm" />    	
+ <topic label="Selecting components" href="html/tasks/selecting_platform.htm#select_components" />    	
+ <topic label="Analysing components" href="html/tasks/analyse_component.htm" />    	
+ <topic label="Exporting the report" href="html/tasks/export_report.htm" />    	
+ <topic label="Locating components" href="html/tasks/locate_component.htm"/> 
+ <topic label="Finding for components" href="html/tasks/search_comp.htm"/>
+ <topic label="Searching for components and functions" href="html/tasks/search.htm"/>
+ <topic label="Toolbar" href="html/references/toolbar.htm" />    	
+</context>	  
+    
+<context id="APPDEP_COMPONENT_LIST_VIEW">
+ <description>Dependency Explorer's Component List View</description>	   
+ <topic label="Is Used By... -action" href="html/tasks/analyse_component.htm#usedby" />    	
+</context>	  
+
+<context id="APPDEP_IMPORTED_FUNCTIONS">
+ <description>Imported Functions Tab</description>	   
+ <topic label="Checking imported functions" href="html/tasks/check_imp_func.htm"/>
+ <topic label="Searching for components and functions" href="html/tasks/search.htm"/>
+ <topic label="Viewing source file" href="html/tasks/view_source.htm"/>
+ <topic label="Viewing source file in project" href="html/tasks/view_source_file_in_project.htm"/>
+ <topic label="Viewing method call locations" href="html/tasks/view_method_call_locations.htm"/>
+</context>    
+     		     
+<context id="APPDEP_EXPORTED_FUNCTIONS">
+ <description>Exported Functions Tab</description>	   
+ <topic label="Checking exported functions" href="html/tasks/check_exp_func.htm"/>
+ <topic label="Searching for components and functions" href="html/tasks/search.htm"/>
+ <topic label="Viewing source file" href="html/tasks/view_source.htm"/>
+ <topic label="Viewing source file in project" href="html/tasks/view_source_file_in_project.htm"/>
+</context>    
+     		     
+<context id="APPDEP_PROPERTIES">
+ <description>Properties Tab</description>	   
+ <topic label="Checking Component Properties" href="html/tasks/check_comp_prop.htm"/>
+</context>    
+     		     
+<context id="APPDEP_DIALOG_ADD_SIS_FILES">
+ <description>SIS File Selection</description>	   
+ <topic label="Adding SIS files" href="html/tasks/selecting_platform.htm#add_sis"/>
+</context>    
+     		     
+<context id="APPDEP_WIZARD_PAGE_SDK_SELECT">
+ <description>SDK and Build Target Selection</description>	   
+ <topic label="Selecting an SDK" href="html/tasks/selecting_platform.htm"/>
+</context>    
+     		     
+<context id="APPDEP_WIZARD_PAGE_BUILD_TARGET_SELECT">
+ <description>SDK and Build Target Selection</description>	   
+ <topic label="Selecting build targets" href="html/tasks/selecting_platform.htm#build_target_selection"/>
+</context>    
+     		     
+<context id="APPDEP_WIZARD_PAGE_CACHE_GEN_OPT">
+ <description>Cache Generation Options</description>	   
+ <topic label="Defining cache generation options" href="html/tasks/selecting_platform.htm#generate_cache"/>
+</context>    
+     		     
+<context id="APPDEP_WIZARD_PAGE_COMP_SELECT">
+ <description>Component Selection</description>	   
+ <topic label="Selecting components" href="html/tasks/selecting_platform.htm#select_components"/>
+</context>    
+     		     
+<context id="APPDEP_FIND_DIALOG">
+ <description>Finding Components</description>	   
+ <topic label="Finding for components" href="html/tasks/search_comp.htm"/>
+</context>    
+     		     
+<context id="APPDEP_LOCATE_COMPONENT_DIALOG">
+ <description>Locating Components</description>	   
+ <topic label="Locating components" href="html/tasks/locate_component.htm"/>
+</context>    
+     		     
+<context id="APPDEP_SEARCH_DIALOG">
+ <description>Searching Components and Functions</description>	   
+ <topic label="Searching for components and functions" href="html/tasks/search.htm"/>
+</context>    
+     		     
+<context id="APPDEP_PREF_PAGE">
+ <description>Setting Preferences</description>	   
+ <topic label="Setting preferences" href="html/tasks/setting_preferences.htm"/>
+</context>    
+     		     
+</contexts>

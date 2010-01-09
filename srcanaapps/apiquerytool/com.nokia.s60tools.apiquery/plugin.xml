@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+    <extension
+      point="org.eclipse.core.runtime.products"
+      id="product">      
+      <product name="API Query" application="org.eclipse.ui.ide.workbench" > 
+          <property name="appName" value="Carbide.c++ Extensions - API Query"/> 
+     </product> 
+   </extension>
+
+   <extension-point id="searchMethods" name="com.nokia.s60tools.apiquery.searchMethods" schema="schema/searchMethods.exsd"/>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="API Query Tool&apos;s Actions"
+            id="com.nokia.s60tools.apiquery.ui.actionSet"
+            label="%view.Label"
+            visible="true">
+         <action
+               class="com.nokia.s60tools.apiquery.ui.actions.ToolsMenuAction"
+               icon="icons/apiquery_tsk.png"
+               id="com.nokia.s60tools.apiquery.ui.actions.ToolsMenuAction"
+               label="%view.Label"
+               menubarPath="com.nokia.carbide.cpp.ui.CarbideMenu/CarbideExtensions"
+               style="push"
+               tooltip="%view.Tooltip"/>
+         <menu
+               id="com.nokia.carbide.cpp.ui.CarbideMenu"
+               label="Carbide"
+               path="additions">
+            <groupMarker name="additions"/>
+         </menu>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.nokia.s60tools"
+            name="Carbide Extensions"/>
+      <stickyView
+            closeable="true"
+            id="com.nokia.s60tools.apiquery.ui.views.main.MainView"
+            location="RIGHT"
+            moveable="true"/>
+      <view
+            category="com.nokia.s60tools"
+            class="com.nokia.s60tools.apiquery.ui.views.main.MainView"
+            icon="icons/apiquery_tsk.png"
+            id="com.nokia.s60tools.apiquery.ui.views.main.MainView"
+            name="%view.Label"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         
+      <objectContribution
+	        adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            id="com.nokia.s60tools.apiquery.popup.actions.project">
+         <menu
+               id="com.nokia.s60tools.apiquery.popup.project"
+               label="%popups.ApiQueryMainMenu"
+               path="additions">
+            <separator name="forProjectWideActions"/>
+            <separator name="forIdentifierLevelActions"/>
+         </menu>
+         <!-- Only show action for Carbide.c++ projects. -->
+         <filter
+              name="projectNature"
+              value="com.nokia.carbide.cdt.builder.carbideCPPBuilderNature"/>
+         <action
+               label="%popups.action.searchProject"
+               class="com.nokia.s60tools.apiquery.popup.actions.CheckProjectAction"
+               menubarPath="com.nokia.s60tools.apiquery.popup.project/forProjectWideActions"
+               enablesFor="1"
+               id="com.nokia.s60tools.apiquery.popup.actions.CheckProjectAction">
+         </action>
+      </objectContribution>
+      
+      <objectContribution
+	        adaptable="true"
+            objectClass="org.eclipse.core.resources.IFolder"
+            id="com.nokia.s60tools.apiquery.popup.actions.folder">
+         <menu
+               id="com.nokia.s60tools.apiquery.popup.folder"
+               label="%popups.ApiQueryMainMenu"
+               path="additions">
+            <separator name="forProjectWideActions"/>
+            <separator name="forIdentifierLevelActions"/>
+         </menu>
+         <!-- Only show action for Carbide.c++ projects. -->
+         <filter
+              name="projectNature"
+              value="com.nokia.carbide.cdt.builder.carbideCPPBuilderNature"/>
+         <action
+               label="%popups.action.searchProject"
+               class="com.nokia.s60tools.apiquery.popup.actions.CheckProjectAction"
+               menubarPath="com.nokia.s60tools.apiquery.popup.folder/forProjectWideActions"
+               enablesFor="1"
+               id="com.nokia.s60tools.apiquery.popup.actions.CheckProjectAction">
+         </action>
+      </objectContribution>
+
+      <objectContribution
+	        adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.nokia.s60tools.apiquery.popup.actions.file">
+         <!-- We have to replicate the menu because this is a part of object contribution -->
+         <menu
+			   id="com.nokia.s60tools.apiquery.popup.file"
+			   label="%popups.ApiQueryMainMenu">
+			<separator name="forProjectWideActions"/>
+			<separator name="forIdentifierLevelActions"/>
+         </menu>
+         <!-- Only show action for Carbide.c++ projects. -->
+         <filter
+	          name="projectNature"
+	          value="com.nokia.carbide.cdt.builder.carbideCPPBuilderNature"/>
+         <visibility>
+           <or>
+             <objectState
+                   name="extension"
+                   value="cpp">
+             </objectState>
+              <objectState
+                    name="extension" 
+                    value="cp"
+                    />
+             <objectState
+                   name="extension"
+                   value="hpp"
+                   />
+              <objectState
+                    name="extension" 
+                    value="h"
+                    />
+              <objectState
+                    name="extension" 
+                    value="mmp"
+                    />
+           </or>
+        </visibility>  
+         <action
+               label="%popups.action.searchCRPSKey"
+               class="com.nokia.s60tools.apiquery.popup.actions.CheckIdentifierAction"
+               menubarPath="com.nokia.s60tools.apiquery.popup.file/forIdentifierLevelActions"
+               enablesFor="1"
+               id="com.nokia.s60tools.apiquery.popup.actions.CheckIdentifierAction.CRPSKey">
+         </action>
+         <action
+               label="%popups.action.searchLIBName"
+               class="com.nokia.s60tools.apiquery.popup.actions.CheckIdentifierAction"
+               menubarPath="com.nokia.s60tools.apiquery.popup.file/forIdentifierLevelActions"
+               enablesFor="1"
+               id="com.nokia.s60tools.apiquery.popup.actions.CheckIdentifierAction.LIBName">
+         </action>
+         <action
+               label="%popups.action.searchHeaderName"
+               class="com.nokia.s60tools.apiquery.popup.actions.CheckIdentifierAction"
+               menubarPath="com.nokia.s60tools.apiquery.popup.file/forIdentifierLevelActions"
+               enablesFor="1"
+               id="com.nokia.s60tools.apiquery.popup.actions.CheckIdentifierAction.HeaderName">
+         </action>
+         <action
+               label="%popups.action.searchProject"
+               class="com.nokia.s60tools.apiquery.popup.actions.CheckProjectAction"
+               menubarPath="com.nokia.s60tools.apiquery.popup.file/forProjectWideActions"
+               enablesFor="1"
+               id="com.nokia.s60tools.apiquery.popup.actions.CheckProjectAction">
+         </action>
+      </objectContribution>
+   </extension>
+   
+     <extension
+           id="com.nokia.s60tools.apiquery.servlets.ReportActionServlet"
+           name="ReportActionServlet"
+           point="org.eclipse.equinox.http.registry.servlets">
+        <servlet
+              alias="/reportAction"
+              class="com.nokia.s60tools.apiquery.servlets.ReportActionServlet"
+              load-on-startup="false">
+        </servlet>
+     </extension>
+        		        
+     <extension
+           id="com.nokia.s60tools.apiquery.preferences"
+           point="org.eclipse.core.runtime.preferences">
+        <initializer
+              class="com.nokia.s60tools.apiquery.shared.preferences.APIQueryPreferenceInitializer">
+        </initializer>
+     </extension>
+   		
+
+</plugin>

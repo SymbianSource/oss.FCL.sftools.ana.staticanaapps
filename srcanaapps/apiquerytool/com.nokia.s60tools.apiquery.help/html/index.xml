@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.index"?>
+
+	<!-- INDEX INSTRUCTIONS
+	
+	Use the index.xml file to define the index entries for the plugin's 
+	help contents. In Eclipse 3.2 and beyond an Index tab appears in the Help
+	viewer making it possible for user to more easily locate subjects of
+	interest to them.
+		
+	In brief, every file used in the help documentation should have at least one
+	associated index entry for it. Ideally, it's simple to make two entries per
+	page by simply re-wording the subject slightly. For example, a view could
+	be indexed twice like this, 1) Breakpoint view, and 2) Views/Breakpoint.
+	
+	See ??? for details on creating indexes.
+	
+	-->
+
+<index>
+
+	<!-- AAAAAAAA -->
+
+	<entry keyword="API Query" >
+		<topic href="html/gettingstarted/overview.htm" />
+
+		<entry keyword="basic walk-through" >
+			<topic href="html/gettingstarted/walk_through.htm" />
+		</entry>
+
+		<entry keyword="Release Note" >
+			<topic href="html/release_notes.htm" />
+		</entry>
+
+	</entry>
+
+	<entry keyword="API query criteria" >
+		<topic href="html/gettingstarted/overview.htm" />
+	</entry>
+
+	<!-- BBBBBBBB -->	
+
+	<!-- CCCCCCCC -->	
+
+	<entry keyword="configuring data sources" >
+		<topic href="html/tasks/configure_data_sources.htm" />
+	</entry>
+
+	<!-- DDDDDDDD -->		
+
+	<entry keyword="data sources, overview" >
+		<topic href="html/concepts/data_source.htm" />
+		
+		<entry keyword="configuring" >
+			<topic href="html/tasks/configure_data_sources.htm" />
+		</entry>
+	</entry>
+
+
+	<!-- EEEEEEEE -->	
+
+	<!-- FFFFFFFF -->
+
+	<!-- GGGGGGGG -->	
+	
+	<!-- HHHHHHHH -->	
+	
+	<!-- IIIIIIII -->
+	
+	<!-- JJJJJJJJ -->
+	
+	<!-- KKKKKKKK -->
+	
+	<!-- LLLLLLLL -->
+	
+	<!-- MMMMMMMM -->
+	
+	<!-- NNNNNNNN -->
+	
+	<!-- OOOOOOOO -->
+	
+	<!-- PPPPPPPP -->
+	
+	<!-- QQQQQQQQ -->
+
+	<entry keyword="querying APIs" >
+	
+		<entry keyword="on Search tab" >
+			<topic href="html/tasks/query_from_search_tab.htm" />
+		</entry>
+
+		<entry keyword="for identifier" >
+			<topic href="html/tasks/query_for_source_code_identifier.htm" />
+		</entry>
+
+		<entry keyword="for project" >
+			<topic href="html/tasks/query_for_project.htm" />
+		</entry>
+
+	</entry>
+
+	<entry keyword="query from source code" >
+		<topic href="html/tasks/query_from_context_menu.htm" />
+	</entry>
+
+	<!-- RRRRRRRR -->
+
+	<entry keyword="Release Notes" >
+
+		<entry keyword="API Query" >
+			<topic href="html/release_notes.htm" />
+		</entry>
+	</entry>
+	
+	<entry keyword="reports" >
+
+		<entry keyword="API query" >
+			<topic href="html/tasks/query_for_project.htm" />
+		</entry>
+	</entry>
+	
+	<!-- SSSSSSSS -->
+
+	<entry keyword="searching" >
+		<entry keyword="API data" >
+			<topic href="html/tasks/query_from_search_tab.htm" />
+		</entry>
+	</entry>
+	
+	<!-- TTTTTTTT -->
+	
+	<!-- UUUUUUUU -->
+	
+	<!-- VVVVVVVV -->
+	
+	<!-- WWWWWWWW -->
+	
+	<!-- XXXXXXXX -->
+	
+	<!-- YYYYYYYY -->
+	
+	<!-- ZZZZZZZZ -->
+
+</index>

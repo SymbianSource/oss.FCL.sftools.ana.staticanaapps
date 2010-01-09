@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<introContent>
+<!-- Extension to the Whats New page. -->
+
+	<extensionContent 
+		id="com.nokia.s60tools.appdep.help-overview" 
+		alt-style="appdep.properties" 
+		style="appdep.css" 
+		path="overview/@">
+		
+		<group 
+			id="content-group" 
+			style-id="content-group">
+			
+			<link 
+				label="Dependency Explorer Overview" 
+	       		url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.nokia.s60tools.appdep.help/html/gettingstarted/overview.htm" 
+				id="appdep">
+				style-id="content-link" 
+          		<text>Learn about Dependency Explorer and what it can do to improve your development efforts.</text>
+			</link>
+			
+		</group>
+		
+	</extensionContent>
+  
+</introContent>
